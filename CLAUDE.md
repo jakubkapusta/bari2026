@@ -177,6 +177,19 @@ Jedno zapytanie do Open-Meteo (`fetchWx()`, bez klucza, `timezone=Europe/Rome`) 
 - Horyzont prognozy Open-Meteo to 16 dni — wcześniej pasków po prostu nie ma. Oba elementy mają klasę `noprint`.
 - Gdy pasek się renderuje, `dayMetaLine()` pomija dzienne `☔ X%` (byłoby zdublowane).
 
+## Wygląd — „Maiolica"
+
+Kierunek: apulijskie kafle ceramiczne. Kobalt + cytryna na wapiennej bieli, serif Cormorant Garamond (nagłówki, numery) + Jost (tekst).
+
+- Tokeny w `:root` (tryb ciemny nadpisuje je w `html.dark`): `--indigo` kobalt (godziny, linki, akcent główny), `--lemon` cytryna (obwódki kafelków, ornament), `--gold` ochra (etykiety, ciekawostki), `--red` terakota (tryb TERAZ, ulewa), `--teal` oliwka (godziny otwarcia `🕐`, odhaczone), `--tint` jasny błękit (pogoda, warianty, akcje), `--r` promień kart.
+- Kolory części: `--p1` kobalt, `--p2` terakota, `--p3` oliwka (klasa `.p-N` ustawia `--pc`).
+- `.tile` — kafelek z cytrynową obwódką: numer dnia, cyfra rzymska części, ikona grupy w Jedzeniu. Kolor tła z `--pc`.
+- `.tiles` — pas kafli (wzór SVG w `--tile-img`) na górze nagłówka i pod stopką.
+- Oś dnia: romby zamiast kropek, kropkowana linia. Pulsowanie w trybie TERAZ musi zachować `rotate(45deg)` w keyframes.
+- **Unikamy motywów japońskich**, które zostały po poprzednim planie: okrągłe „pieczątki"-monogramy, kanji, ostre 2px narożniki, arkusze z liniami „keisen", koncentryczne fale w tle, pionowy tekst.
+- Ikona zakładki Jedzenie to lód w rożku (miski/talerze z makaronem wyglądały jak ramen). Ikony zakładek: inline SVG 24×24, obrys `currentColor`.
+- Ikona aplikacji `icon.svg` = kafel maioliki; PNG (`icon-192`, `icon-512`, `apple-touch-icon` 180) renderowane z niej headless Chrome + `sips`.
+
 ## Pozostałe funkcje
 
 - **Tryb TERAZ** (`updateNowMode`) — w trakcie wycieczki podświetla dzisiejszy dzień (`DZIŚ`), bieżący punkt i pokazuje pigułkę „▶ TERAZ" z następnym punktem; przy starcie przewija do dzisiejszego dnia. Do testów: `window.__testNow='2026-10-18T11:00:00+02:00';updateNowMode()`.

@@ -1,6 +1,6 @@
 /* Service worker — tryb offline dla planu wycieczki Bari 2026 */
 const CACHE_PREFIX = 'bari2026-';
-const CACHE = CACHE_PREFIX + 'v1';
+const CACHE = CACHE_PREFIX + 'v2';
 const CORE = [
   './',
   './index.html',
