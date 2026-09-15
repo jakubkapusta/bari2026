@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3c98b"/>
+      <stop offset="1" stop-color="#f8e7c9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" fill="url(#s)"/>
+  <circle cx="220" cy="120" r="50" fill="#f6a55b"/>
+  <!-- wzgórze z Sassi -->
+  <path d="M0 420 V250 Q300 140 620 120 Q900 110 1200 190 V420 Z" fill="#d8bf95"/>
+  <!-- katedra na szczycie -->
+  <rect x="600" y="40" width="34" height="90" fill="#cdb084"/>
+  <path d="M594 40 h46 l-23 -26 Z" fill="#b99a6a"/>
+  <rect x="560" y="92" width="120" height="40" fill="#cdb084"/>
+  <!-- tarasy domów wykutych w tufie -->
+  <g fill="#e6d3ad">
+    <rect x="420" y="140" width="80" height="40"/><rect x="510" y="132" width="50" height="48"/><rect x="690" y="132" width="90" height="44"/><rect x="790" y="140" width="60" height="40"/>
+    <rect x="300" y="190" width="90" height="44"/><rect x="400" y="186" width="70" height="48"/><rect x="480" y="190" width="100" height="44"/><rect x="600" y="182" width="80" height="52"/><rect x="690" y="188" width="110" height="46"/><rect x="810" y="192" width="80" height="42"/><rect x="900" y="200" width="90" height="36"/>
+    <rect x="180" y="246" width="100" height="46"/><rect x="290" y="240" width="80" height="52"/><rect x="380" y="246" width="120" height="46"/><rect x="510" y="240" width="90" height="52"/><rect x="610" y="244" width="110" height="48"/><rect x="730" y="240" width="90" height="52"/><rect x="830" y="246" width="120" height="46"/><rect x="960" y="250" width="100" height="42"/>
+    <rect x="90" y="300" width="110" height="50"/><rect x="210" y="304" width="90" height="46"/><rect x="310" y="298" width="130" height="52"/><rect x="450" y="304" width="100" height="46"/><rect x="560" y="300" width="120" height="50"/><rect x="690" y="304" width="100" height="46"/><rect x="800" y="298" width="130" height="52"/><rect x="940" y="304" width="110" height="46"/><rect x="1060" y="300" width="110" height="50"/>
+  </g>
+  <!-- wejścia do grot -->
+  <g fill="#7d6346">
+    <path d="M450 180 v-18 a10 10 0 0 1 20 0 v18 Z"/><path d="M730 176 v-18 a10 10 0 0 1 20 0 v18 Z"/>
+    <path d="M330 234 v-20 a11 11 0 0 1 22 0 v20 Z"/><path d="M630 234 v-22 a11 11 0 0 1 22 0 v22 Z"/><path d="M850 234 v-18 a10 10 0 0 1 20 0 v18 Z"/>
+    <path d="M220 292 v-20 a11 11 0 0 1 22 0 v20 Z"/><path d="M540 292 v-22 a11 11 0 0 1 22 0 v22 Z"/><path d="M760 292 v-22 a11 11 0 0 1 22 0 v22 Z"/><path d="M1000 292 v-18 a10 10 0 0 1 20 0 v18 Z"/>
+    <path d="M360 350 v-22 a12 12 0 0 1 24 0 v22 Z"/><path d="M600 350 v-22 a12 12 0 0 1 24 0 v22 Z"/><path d="M850 350 v-22 a12 12 0 0 1 24 0 v22 Z"/>
+  </g>
+  <!-- wąwóz Gravina -->
+  <path d="M0 420 V370 Q600 350 1200 372 V420 Z" fill="#9c7f5a"/>
+</svg>

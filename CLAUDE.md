@@ -3,7 +3,9 @@
 Cały plan jest w jednym pliku `index.html` — dane, styl i logika renderowania.
 Treść planu to blok tekstowy `PLAN_DATA` parsowany przez JS na sekcje, dni i punkty harmonogramu.
 
-Wycieczka: Bari i Apulia, 17–20.10.2026 (sob–wt), Kuba, Asia i Michał. Wylot z Krakowa sob 5:50, powrót z Bari wt 23:00.
+Wycieczka: Apulia, 17–20.10.2026 (sob–wt), Kuba, Asia i Michał. Wylot z Krakowa sob 5:50 (tylko bagaż podręczny), powrót z Bari wt 23:00.
+Logistyka: auto z wypożyczalni na lotnisku BRI na cały pobyt (odbiór sob rano, zwrot wt wieczorem), jedna baza — 3 noce w Monopoli. Plan jest celowo intensywny; restauracje są ważne.
+Szkielet: D1 Polignano + Monopoli · D2 Dolina Itrii (Alberobello, Locorotondo, Ostuni, kolacja w Cisternino) · D3 Matera · D4 Monopoli → Bari → lot.
 Strefa czasowa w kodzie: `TZ='Europe/Rome'` (ta sama co Polska — nie ma dni „na zegarze polskim").
 
 ## Struktura sekcji
@@ -117,7 +119,7 @@ Punkt należący do wariantu dostaje prefiks przed czasem:
 2. W źródle pisz **całą gałąź A, potem całą gałąź B**. W obrębie jednej gałęzi czasy muszą rosnąć — dzięki temu po wybraniu wariantu oś czasu jest chronologiczna.
 3. Każdy wariant musi mieć wypełnione pole „kiedy go wybrać" — realne kryterium decyzji w terenie.
 
-Dni z wariantami: **3** (Alberobello / Matera).
+Dni z wariantami: obecnie **brak** (z autem Alberobello i Matera mieszczą się w osobnych dniach). Mechanizm zostaje na rozwidlenia typu pogoda / siły.
 
 ⚠️ `DAY_GEO` i `DAY_CITY` mają jeden wpis na dzień i nie znają wariantów — wartości odpowiadają wariantowi domyślnemu.
 
