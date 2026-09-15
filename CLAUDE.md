@@ -181,6 +181,7 @@ Jedno zapytanie do Open-Meteo (`fetchWx()`, bez klucza, `timezone=Europe/Rome`) 
 
 Kierunek: apulijskie kafle ceramiczne. Kobalt + cytryna na wapiennej bieli, serif Cormorant Garamond (nagłówki, numery) + Jost (tekst).
 
+- Tło strony `--bg` = azzurro `#e7eef7` (blady błękit; białe karty mają się od niego wyraźnie odcinać). Na nim chipy dni w nawigacji mają białe tło — jasnoniebieskie by się zlewały. Boksy notek i hover wierszy liczą szary odcień od `--card`, nie od `--bg`.
 - Tokeny w `:root` (tryb ciemny nadpisuje je w `html.dark`): `--indigo` kobalt (godziny, linki, akcent główny), `--lemon` cytryna (obwódki kafelków, ornament), `--gold` ochra (etykiety, ciekawostki), `--red` terakota (tryb TERAZ, ulewa), `--teal` oliwka (godziny otwarcia `🕐`, odhaczone), `--tint` jasny błękit (pogoda, warianty, akcje), `--r` promień kart.
 - Kolory części: `--p1` kobalt, `--p2` terakota, `--p3` oliwka (klasa `.p-N` ustawia `--pc`).
 - `.tile` — kafelek z cytrynową obwódką: numer dnia, cyfra rzymska części, ikona grupy w Jedzeniu. Kolor tła z `--pc`.
@@ -197,6 +198,12 @@ Kierunek: apulijskie kafle ceramiczne. Kobalt + cytryna na wapiennej bieli, seri
 - **Odliczanie** w nagłówku (`cdHead`); **3× klik w odliczanie** → easter egg z psem (`img/dog.png`).
 - **Motyw** jasny/ciemny (`bari26_theme`), **druk/PDF** (rozwija ciekawostki na czas wydruku).
 - Wszystkie klucze `localStorage` mają prefiks `bari26_` — strona żyje na tym samym originie (`github.io`) co plan Japonii (`jp26_*`), więc prefiksów nie wolno mieszać.
+
+## Git i deploy
+
+Repo `jakubkapusta/bari2026`, gałąź `master`, remote po SSH. GitHub Pages deployuje się przez GitHub Actions (`.github/workflows/pages.yml`) przy każdym pushu.
+
+**Nie pushuj po każdej zmianie.** Commituj lokalnie, a push rób dopiero, gdy użytkownik o to poprosi — seria pushów throttluje deploy Pages.
 
 ## Service worker (`sw.js`) — cache offline
 
