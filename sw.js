@@ -1,6 +1,6 @@
 /* Service worker — tryb offline dla planu wycieczki Bari 2026 */
 const CACHE_PREFIX = 'bari2026-';
-const CACHE = CACHE_PREFIX + 'v3';
+const CACHE = CACHE_PREFIX + 'v4';
 const CORE = [
   './',
   './index.html',
@@ -9,10 +9,10 @@ const CORE = [
   './icon-192.png',
   './icon-512.png',
   './apple-touch-icon.png',
-  './img/polignano.svg',
-  './img/trulli.svg',
-  './img/matera.svg',
-  './img/bari-vecchia.svg',
+  './img/polignano.jpg',
+  './img/alberobello.jpg',
+  './img/matera.jpg',
+  './img/bari.jpg',
   './img/dog.png'
 ];
 

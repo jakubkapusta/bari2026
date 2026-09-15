@@ -162,7 +162,10 @@ if(d&&!d.sc.some(s=>s.tm===k.tm&&(s.v||'')===(k.v||'')))orphan.push('D'+t.day+' 
 
 Przy dodaniu/usunięciu dnia albo zmianie jego bazy zaktualizuj:
 
-- `DAY_IMG` — zdjęcie w nagłówku karty dnia: `{f:'img/...', t:'Tytuł'}`, opcjonalnie `by`, `lic`, `u` (autor/licencja/link) — gdy są, pokazują się w lightboxie i w „Źródła zdjęć". Obecnie placeholdery SVG.
+- `DAY_IMG` — zdjęcie w nagłówku karty dnia: `{f:'img/...', t:'Tytuł'}`, opcjonalnie `pos` (CSS `object-position`, np. `'center 22%'` — gdy w wąskim kadrze ucieka najważniejsza część zdjęcia) oraz `by`, `lic`, `u` (autor/licencja/link) — gdy są, pokazują się w lightboxie i w „Źródła zdjęć".
+  - Zdjęcia pochodzą z **Wikimedia Commons** (wolne licencje, zawsze z autorem i licencją w `DAY_IMG`). Szukanie: API Commons (`generator=search`, `gsrnamespace=6`; `incategory:Quality_images` daje najlepsze ujęcia), poziome, ≥1600 px szerokości.
+  - Pobieramy miniaturę 1600 px (`iiurlwidth=1600`) i przepakowujemy: `sips -s format jpeg -s formatOptions 78 --resampleWidth 1600 plik.jpg --out plik.jpg` (docelowo ~200–500 KB — plik trafia do cache offline).
+  - Nazwy plików od miejsca (`img/matera.jpg`), nie od numeru dnia — dni się przesuwają.
 - `DAY_GEO` — `[lat, lon]` bazy dnia → pogoda i wschód/zachód słońca.
 - `DAY_CITY` — miasto do automatycznego linku „restauracje <miasto>" przy punktach jedzeniowych.
 

@@ -478,12 +478,12 @@ function foodMq(title,dnum){
   if(area)return 'restauracje '+area+(city&&area.toLowerCase()!==city.toLowerCase()?' '+city:'');
   return city?'restauracje '+city:'';
 }
-// Zdjęcia dni — nagłówek karty dnia. {f:plik, t:tytuł} + opcjonalnie {by:autor, lic:licencja, u:link do źródła}
+// Zdjęcia dni — nagłówek karty dnia (Wikimedia Commons). {f:plik, t:tytuł} + opcjonalnie {pos:object-position kadru, by:autor, lic:licencja, u:link do źródła}
 const DAY_IMG={
- 1:[{f:'img/polignano.svg',t:'Polignano a Mare'}],
- 2:[{f:'img/trulli.svg',t:'Trulli w Alberobello'}],
- 3:[{f:'img/matera.svg',t:'Sassi di Matera'}],
- 4:[{f:'img/bari-vecchia.svg',t:'Bari Vecchia'}]
+ 1:[{f:'img/polignano.jpg',t:'Lama Monachile, Polignano a Mare',pos:'center 22%',by:'Calogero77',lic:'CC BY-SA 4.0',u:'https://commons.wikimedia.org/wiki/File:Lama_Monachile.jpg'}],
+ 2:[{f:'img/alberobello.jpg',t:'Trulli w Rione Monti, Alberobello',by:'Benjamin Smith',lic:'CC BY-SA 4.0',u:'https://commons.wikimedia.org/wiki/File:Alberobello_-_Trulli_del_Rione_Monti_-_03.jpg'}],
+ 3:[{f:'img/matera.jpg',t:'Sassi di Matera z Piazzetta Pascoli',pos:'center 70%',by:'Jules Verne Times Two',lic:'CC BY-SA 4.0',u:'https://commons.wikimedia.org/wiki/File:Sassi_di_Matera_seen_from_Belvedere_di_Piazza_Giovanni_Pascoli,_Matera,_Italy_(PPL3-Altered)_julesvernex2.jpg'}],
+ 4:[{f:'img/bari.jpg',t:'Castello Normanno-Svevo i Bari Vecchia',by:'Martin Falbisoner',lic:'CC BY-SA 4.0',u:'https://commons.wikimedia.org/wiki/File:Castle_and_Old_Town_of_Bari_-_September_2017.jpg'}]
 };
 function imgCredit(im){return im.by?` · fot. ${esc(im.by)} — <a href="${im.u}" target="_blank" rel="noopener">${esc(im.lic||'źródło')}</a>`:''}
 function openPhoto(dnum,ix){const im=(DAY_IMG[dnum]||[])[ix];if(!im)return;
@@ -659,7 +659,7 @@ function renderPlanTab(){
       const rows=vrs.length?od.sc.filter(s=>!s.v||act==='ALL'||s.v===act):od.sc;
       const has=rows.length>0,tbd=has?'':'tbd',dtitle=od.ts||od.lb;
       const dimgs=DAY_IMG[+dnum]||null;
-      const collage=dimgs?`<div class="day-collage${dimgs.length===1?' single':''}">${dimgs.map((im,ix)=>`<img src="${im.f}" alt="${esc(im.t)}" title="${esc(im.t)}" loading="lazy" onclick="openPhoto(${+dnum},${ix})">`).join('')}</div>`:'';
+      const collage=dimgs?`<div class="day-collage${dimgs.length===1?' single':''}">${dimgs.map((im,ix)=>`<img src="${im.f}"${im.pos?` style="object-position:${esc(im.pos)}"`:''} alt="${esc(im.t)}" title="${esc(im.t)}" loading="lazy" onclick="openPhoto(${+dnum},${ix})">`).join('')}</div>`:'';
       h1+=`<div class="dc p-${c}" id="${anchor}">${collage}<div class="dh"><div class="tile">${dnum}</div><div class="dt"><div class="dn">${esc(dtitle)}</div><div class="dd">${esc(od.ds)}</div>${dayMetaLine(dnum)}</div></div>${dayWxStrip(dnum)}<div class="db ${tbd}"><div class="ds">${esc(od.sm)}</div>${dayNotes(od)}`;
       if(vrs.length)h1+=variantBar(dnum,od,act);
       if(has){h1+='<div class="sch">';rows.forEach((s,si)=>{const emq=s.mq||(isFood(s.ti)?foodMq(s.ti,dnum):'');const ti=emq?`<a class="mlink" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(emq)}" target="_blank" rel="noopener">${esc(s.ti)}</a>`:esc(s.ti);const stips=tipMap[tipKey(dnum,s.v,s.tm)]||[];let th='';stips.forEach(tip=>{th+=`<details class="tip-d"><summary class="tip-s">${esc(tip.icon)} ${esc(tip.ti)}</summary><div class="tip-b">${esc(tip.dx)}</div></details>`});const bdg=(s.v&&act==='ALL')?`<span class="vbadge">${esc(s.v)}</span>`:'';h1+=`<div class="sr" data-tm="${esc(s.tm)}"><div class="st">${esc(s.tm)}${wxMark(dnum,s.tm,rows[si+1]&&rows[si+1].tm)}</div><div class="sdot"></div><div class="sc"><strong>${bdg}${ti}</strong>${s.nt?'<br><span class="n">'+fmtNote(s.nt)+'</span>':''}${th}</div></div>`});h1+='</div>'}
@@ -672,7 +672,7 @@ function renderPlanTab(){
   });
   if(!imgCredits){
     const credited=Object.values(DAY_IMG).flat().filter(im=>im.by);
-    if(credited.length)imgCredits='<details class="img-credits"><summary>📷 Źródła zdjęć</summary><div class="img-credits-b">'+credited.map(im=>`${esc(im.t)}${imgCredit(im)}`).join('<br>')+'</div></details>';
+    if(credited.length)imgCredits='<details class="img-credits"><summary>📷 Źródła zdjęć — Wikimedia Commons</summary><div class="img-credits-b">'+credited.map(im=>`${esc(im.t)}${imgCredit(im)}`).join('<br>')+'</div></details>';
   }
   document.getElementById('pplan').innerHTML=nav+'</div>'+h1+imgCredits;
   updateNowMode();
