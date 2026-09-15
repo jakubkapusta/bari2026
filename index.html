@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bari 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#c0532f">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bari 2026">
+</head>
+<body>
+<script>/* Tryb ciemny: klasa na <html> zanim wczytają się style — bez błysku bieli */
+try{if(localStorage.getItem('bari26_theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}</script>
+<script>
+// ╔══════════════════════════════════════════════════════════════════╗
+// ║  DANE PLANU — EDYTUJ TYLKO TĘ SEKCJĘ                            ║
+// ║  Reszta pliku (HTML/CSS/JS poniżej) się nie zmienia.             ║
+// ║  Format opisany w CLAUDE.md                                      ║
+// ╚══════════════════════════════════════════════════════════════════╝
+const PLAN_DATA = `
+### META
+title: Bari 2026
+subtitle: Kuba, Asia i Michał · 17.10 → 20.10 · 4 dni w Apulii
+updated: wrzesień 2026
+start: 2026-10-17
+
+### JEDZENIE
+Street food :: Focaccia barese | Gruba, oliwna focaccia z pomidorkami i oliwkami, często z ziemniakiem w cieście. Najlepsza ciepła, prosto z piekarni w starym mieście. |  | Panificio Fiore @ Panificio Fiore Bari
+Street food :: Panzerotti | Smażone pierożki z mozzarellą i pomidorem. Środek jest gorący jak lawa, więc pierwszy gryz ostrożnie.
+Makarony i morze :: Orecchiette con cime di rapa | Symbol Bari: „uszka" z liśćmi rzepy, czosnkiem, chili i anchois. Świeże orecchiette robią ręcznie panie przy Arco Basso.
+Makarony i morze :: Crudo di mare | Surowe owoce morza (ostrygi, jeżowce, małże) jedzone z cytryną. W Bari to rytuał, często prosto od rybaków przy molo. | Molo San Nicola Bari
+Słodkie i kawa :: Pasticciotto | Kruche ciastko z kremem budyniowym. Pochodzi z Salento, ale dostaniecie je w wielu barach w Bari — do porannej kawy.
+Słodkie i kawa :: Caffè leccese | Espresso z lodem i mlekiem migdałowym. Orzeźwiające także w październiku.
+
+### PLAN
+# Część 1: Bari i okolice
+
+== Dzień 1 | sob 17.10 | Przylot + Bari Vecchia | Nocleg: do ustalenia
+Wczesny wylot, więc w Bari jesteście przed 8:00 i macie przed sobą cały dzień. Pierwszy dzień to spokojne wejście: stare miasto, bazylika, orecchiette prosto od nonn i wieczór nad morzem.
+> 😴 Pobudka ok. 2:30 | Po południu zaplanowana drzemka — bez niej wieczór będzie ciężki.
+- 3:30 | 🚗 Wyjazd na Balice (KRK) | Na lotnisku ~1,5–2 h przed odlotem. Dokumenty i karty pokładowe w telefonie.
+- 5:50 | 🛫 Kraków → Bari (BRI) | Lot ok. 2 h, przylot ok. 7:45. Ta sama strefa czasowa co w Polsce.
+- 8:15 | 🚆 Lotnisko → Bari Centrale | Pociąg Ferrotramviaria (FNB) prosto z terminalu, ok. 20 min. Alternatywa: autobus miejski — taniej, ale wolniej. | Bari Centrale
+- 9:30 | ☕ Śniadanie po włosku | Cornetto i caffè przy barze, na stojąco — taniej i po lokalnemu.
+- 10:30 | 🏰 Castello Normanno-Svevo | Normańsko-szwabski zamek na skraju starego miasta, dziś muzeum i wystawy. | Castello Normanno-Svevo Bari
+- 11:45 | ⛪ Bazylika św. Mikołaja | Serce Bari Vecchia, w krypcie relikwie św. Mikołaja. Ramiona i kolana zakryte. | Basilica di San Nicola Bari
+- 12:45 | 🍝 Strada delle Orecchiette (Arco Basso) | Uliczka, na której starsze panie ręcznie robią orecchiette przed domami. Można kupić suszone na pamiątkę. | Arco Basso Bari
+- 13:30 | 🍕 Lunch — focaccia barese | Focaccia z pomidorkami prosto z piekarni w starym mieście. | Panificio Fiore Bari
+- 15:00 | 🏨 Check-in + drzemka | Po nocy bez snu — obowiązkowo.
+- 18:00 | 🌅 Lungomare Nazario Sauro | Długa promenada wzdłuż morza, wieczorny spacer razem z mieszkańcami. | Lungomare Nazario Sauro Bari
+- 20:00 | 🍽️ Kolacja w Bari Vecchia | Okolice Piazza Mercantile: sgagliozze (smażona polenta), panzerotti, lokalne wino. | Piazza Mercantile Bari
+
+== Dzień 2 | nd 18.10 | Polignano a Mare + Monopoli | Nocleg: do ustalenia
+Dwa nadmorskie miasteczka na południe od Bari, oba pociągiem regionalnym. Polignano to klify i słynna zatoczka, Monopoli — spokojniejszy stary port i mury nad wodą.
+> 🎫 Bilety regionalne | Bez rezerwacji miejsc. Kupcie w aplikacji Trenitalia albo w automacie; papierowy bilet skasujcie przed wejściem do pociągu.
+- 9:00 | 🍳 Śniadanie | Bez pośpiechu, pociągi jeżdżą regularnie.
+- 9:45 | 🚆 Bari Centrale → Polignano a Mare | Regionale, ok. 30–40 min. | Polignano a Mare station
+- 10:30 | 🌊 Lama Monachile | Zatoczka wciśnięta między klify. Widok z mostu nad nią to kadr z pocztówek. | Lama Monachile Polignano a Mare
+- 11:15 | 🏘️ Stare miasto i tarasy widokowe | Białe uliczki nad klifem, balkony z widokiem na morze, pomnik Domenico Modugno. | Centro storico Polignano a Mare
+- 13:00 | 🍽️ Lunch — kanapka z rybą | Szybko i po lokalnemu, np. w Pescarii. | Pescaria Polignano a Mare
+- 15:00 | 🚆 Polignano → Monopoli | Ok. 10 min pociągiem.
+- 15:30 | ⚓ Porto Antico w Monopoli | Niebieskie łodzie rybackie w starym porcie, obok mury i bastiony nad wodą. | Porto Antico Monopoli
+- 17:45 | 🌇 Zachód słońca na murach | Spacer wzdłuż nabrzeża pod zamkiem Karola V. | Castello Carlo V Monopoli
+- 19:00 | 🚆 Powrót do Bari | Ok. 40 min.
+- 20:30 | 🍽️ Kolacja w Bari | Luźny wieczór w okolicy noclegu.
+
+== Dzień 3 | pon 19.10 | Alberobello albo Matera | Nocleg: do ustalenia
+Dzień na jedną dalszą wycieczkę w głąb lądu. Oba cele są na liście UNESCO i oba wymagają ok. 1,5 h pociągiem w każdą stronę, więc wybieracie jeden.
+? ⚖️ Wariant dnia — decyzja wieczorem dnia 2, żeby rano złapać pierwszy sensowny pociąg.
+? A* | 🏠 Alberobello | Trulli, dzielnice Rione Monti i Aia Piccola, powrót wczesnym wieczorem. | Gdy chcecie lżejszy dzień z mniejszą liczbą schodów.
+? B | 🪨 Matera | Sassi — miasto wykute w skale, dużo schodów i punktów widokowych. | Gdy macie siłę na intensywny dzień na nogach i dobre buty.
+- 8:00 | 🍳 Śniadanie | Wcześniej niż zwykle — pociąg czeka.
+- A> 8:45 | 🚆 FSE: Bari → Alberobello | Ferrovie del Sud Est, ok. 1,5–2 h. Rozkład sprawdźcie dzień wcześniej — część kursów bywa zastępowana autobusem. | Bari Centrale
+- A> 10:45 | 🏠 Rione Monti | Największe skupisko trulli, całe stoki stożkowych dachów. Część trulli to sklepy, można wejść do środka. | Rione Monti Alberobello
+- A> 12:30 | 🍽️ Lunch w Alberobello | Kuchnia Murgii: orecchiette, bombette (mięsne roladki z grilla).
+- A> 14:00 | 🏘️ Rione Aia Piccola + Trullo Sovrano | Cichsza, mieszkalna część miasteczka i jedyny piętrowy trullo. | Trullo Sovrano Alberobello
+- A> 16:30 | 🚆 Powrót do Bari | Ok. 1,5–2 h.
+- B> 8:30 | 🚆 FAL: Bari → Matera | Ferrovie Appulo Lucane, osobna stacja obok Bari Centrale, ok. 1,5 h. | Bari Centrale FAL
+- B> 10:15 | 🪨 Sasso Barisano | Pierwszy z dwóch skalnych kwartałów: uliczki, schody, domy wykute w tufie. | Sasso Barisano Matera
+- B> 12:30 | 🍽️ Lunch w Materze | Pane di Matera, crapiata (zupa ze strączków), peperoni cruschi.
+- B> 14:00 | ⛪ Sasso Caveoso + kościoły skalne | Druga część Sassi i kościoły wykute w skale. | Sasso Caveoso Matera
+- B> 16:00 | 📸 Belvedere nad Sassi | Punkt widokowy na całe miasto o złotej godzinie. | Belvedere Piazzetta Pascoli Matera
+- B> 17:30 | 🚆 Powrót do Bari | Ok. 1,5 h.
+- 20:30 | 🍽️ Kolacja w Bari | Po całym dniu w drodze — coś blisko noclegu.
+
+== Dzień 4 | wt 20.10 | Ostatni dzień + lot 23:00 | Lot powrotny BRI → KRK
+Ostatni dzień w Bari bez dalekich wyjazdów. Zakupy w dzielnicy Murat, molo i długa pożegnalna kolacja, a wieczorem pociąg na lotnisko.
+>! 🧳 Bagaż po wymeldowaniu | Dogadajcie późny check-out albo przechowanie bagażu — lot jest dopiero o 23:00.
+>! 🚕 Ostatni pociąg na lotnisko | Sprawdźcie rozkład FNB na ten wieczór. Jeśli ostatni kurs jest za wcześnie, zamówcie taksówkę.
+- 10:00 | 🏨 Check-out | Bagaż zostaje w przechowalni.
+- 10:30 | 🛍️ Via Sparano da Bari | Główna ulica handlowa dzielnicy Murat. | Via Sparano da Bari
+- 12:30 | 🍝 Lunch — orecchiette con cime di rapa | Klasyk Bari na ostatni dzień.
+- 14:30 | 🎭 Teatro Petruzzelli | Z zewnątrz albo ze zwiedzaniem, jeśli trafi się termin. | Teatro Petruzzelli Bari
+- 16:30 | 🌅 Molo San Nicola | Molo przy starym mieście, ostatnie spojrzenie na Adriatyk. | Molo San Nicola Bari
+- 19:00 | 🍽️ Pożegnalna kolacja | Crudo di mare — surowe owoce morza, specjalność Bari.
+- 20:15 | 🚆 Bari Centrale → lotnisko | Pociąg FNB, ok. 20 min. Wcześniej odbiór bagażu. | Bari Centrale
+- 20:45 | ✈️ Lotnisko Bari (BRI) | Odprawa i kontrola bezpieczeństwa. | Aeroporto di Bari Karol Wojtyla
+- 23:00 | 🛫 Bari → Kraków | Lot ok. 2 h, lądowanie w Balicach ok. 1:00 w nocy.
+
+### CIEKAWOSTKI
+D1 | 11:45 | 🎭 | Mikołaj „wykradziony" z Myry | W 1087 r. żeglarze z Bari wywieźli relikwie św. Mikołaja z Myry w Azji Mniejszej, uprzedzając Wenecjan, którzy mieli ten sam plan. Bazylikę zbudowano specjalnie dla nich, a Bari do dziś przyciąga pielgrzymów prawosławnych — stąd napisy po rosyjsku w okolicy.
+D1 | 12:45 | 💡 | Dlaczego „uszka" | Orecchiette formuje się nożem i kciukiem na drewnianej desce — wklęsły kształt zbiera sos. Suszony makaron to dobra pamiątka do bagażu podręcznego, bo nie jest płynem.
+D2 | 10:30 | 🎭 | Skoki z domu nad klifem | Polignano regularnie gości zawody Red Bull Cliff Diving. Zawodnicy skaczą z platformy na jednym z domów nad Lama Monachile, z wysokości ok. 27 m.
+D3 | A>10:45 | ⚙️ | Kopuła bez zaprawy | Trulli stawia się z sucho układanego wapienia. Stożkowy dach to fałszywa kopuła: każdy kolejny pierścień płyt wysuwa się odrobinę do środka, aż otwór zamyka zwornik. Nie ma łuku ani zaprawy — obciążenie przejmują grube ściany, a masa kamienia daje bezwładność cieplną (latem chłodno, zimą ciepło). Popularna opowieść mówi, że brak zaprawy pozwalał szybko rozebrać dach przed poborcą podatkowym.
+D3 | B>10:15 | 🎭 | Od „wstydu Włoch" do UNESCO | W latach 50. XX w. warunki życia w Sassi uznano za skandal i mieszkańców wysiedlono do nowych osiedli. Czterdzieści lat później Sassi trafiły na listę UNESCO (1993), a w 2019 r. Matera była Europejską Stolicą Kultury. Kręcono tu m.in. „Pasję" Mela Gibsona.
+`;
+</script>
+
+<style>
+:root{--bg:#f5eee2;--card:#fffdf8;--red:#c0532f;--gold:#c89b3c;--kin:#b8923f;--teal:#5b7b35;--indigo:#1f5f8b;--text:#2a2723;--muted:#7d756a;--border:#e4ddcf;--shadow:0 6px 20px rgba(60,45,30,.07);--p1:#c0532f;--p2:#1f5f8b;--p3:#5b7b35;--font:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--font-serif:'Playfair Display',Georgia,'Times New Roman',serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);padding:20px;min-height:100vh}
+.hdr{text-align:center;padding:24px 16px 16px;margin:-20px -20px 0;background:#f8f0e2;background-image:repeating-radial-gradient(circle at 50% 150%,rgba(31,95,139,.05) 0 15px,transparent 15px 30px);border-bottom:1px solid #ece3d2}
+.hdr-row{display:flex;align-items:center;justify-content:center;gap:13px}
+.hdr .emblem{width:46px;height:46px;border-radius:12px;overflow:hidden;border:1px solid var(--border);flex:none;line-height:0}
+.hdr-titles{text-align:left}
+.hdr h1{font-family:var(--font-serif);font-weight:700;font-size:1.95em;color:var(--p1);letter-spacing:.01em;line-height:1}
+.hdr h1 span{color:var(--text)}
+.hdr .it{font-family:var(--font-serif);font-style:italic;font-size:.8em;color:#9a9081;letter-spacing:.12em;margin-top:4px}
+.hdr-rule{height:1px;background:linear-gradient(90deg,transparent,var(--kin),transparent);max-width:280px;margin:14px auto 0}
+.hdr .sub{font-size:.85em;color:var(--muted);margin-top:10px}
+.hdr-info-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:6px}
+.cd-head{font-size:.9em;color:var(--indigo);font-weight:700;cursor:pointer;user-select:none}
+.theme-btn{background:var(--card);border:1px solid var(--border);border-radius:2px;padding:3px 11px;cursor:pointer;font-size:.8em;line-height:1.5;transition:.15s}
+.theme-btn:hover{border-color:var(--kin)}
+.tabs{max-width:880px;margin:0 auto 20px;display:flex;flex-wrap:wrap;gap:2px;border-bottom:1px solid var(--border)}
+.tab{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 6px;font-weight:600;font-size:.76em;cursor:pointer;color:var(--muted);background:none;border-bottom:2px solid transparent;transition:.18s;user-select:none}
+.tab .tic{width:19px;height:19px;display:block}
+.tab.on{color:var(--p1);border-bottom-color:var(--p1)}
+.tab:hover:not(.on){color:var(--text)}
+.pnl{display:none;max-width:880px;margin:0 auto}
+.pnl.on{display:block}
+.pdiv{display:flex;align-items:center;gap:13px;margin:24px 0 18px}
+.pdiv .mon{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-weight:700;font-size:1.3em;flex:none}
+.pdiv .pt{flex:1}
+.pdiv .pk{font-size:.66em;letter-spacing:.26em;font-weight:700}
+.pdiv .pn{font-family:var(--font-serif);font-weight:700;font-size:1.12em;color:var(--text);line-height:1.15;margin-top:1px}
+.p-1{--pc:var(--p1)}.p-2{--pc:var(--p2)}.p-3{--pc:var(--p3)}
+.c1{color:var(--p1)}.c2{color:var(--p2)}.c3{color:var(--p3)}
+.dc{background:var(--card);border-radius:2px;margin-bottom:18px;overflow:hidden;border:1px solid var(--border);border-left:4px solid var(--pc,var(--border));scroll-margin-top:54px}
+.day-collage{display:flex;gap:2px;height:104px;background:#efe9dc;position:relative}
+.day-collage img{flex:1 1 0;min-width:0;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:filter .15s}
+.day-collage img:hover{filter:brightness(1.06)}
+.day-collage::after{content:'';position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.16));pointer-events:none}
+.day-collage.single{height:230px}
+.day-collage.single::after{height:60px}
+.dh{display:flex;align-items:center;gap:13px;padding:13px 18px;border-bottom:1px solid #f1ebde}
+.dh .dnum{text-align:center;line-height:1;flex:none;min-width:30px}
+.dh .dnum b{font-family:var(--font-serif);font-size:1.7em;font-weight:700;color:var(--pc,var(--text));display:block}
+.dh .dnum i{font-family:var(--font-serif);font-size:.62em;color:#a89f90;letter-spacing:.04em}
+.dh .dsep{width:1px;height:32px;background:#ece4d4;flex:none}
+.dh .dt{flex:1}
+.dh .dn{font-family:var(--font-serif);font-weight:700;font-size:1.05em;color:var(--text)}
+.dh .dd{font-size:.78em;color:var(--muted);margin-top:1px}
+.db{padding:15px 18px}
+.ds{font-size:.9em;line-height:1.55}
+.dht{margin-top:10px;font-size:.8em;color:var(--muted);display:flex;align-items:center;gap:5px}
+.tbd .ds{color:var(--muted);font-style:italic}
+/* ── Notki dnia (wątki wyjęte z opisu) ── */
+.dnt{margin-top:13px}
+.dnt-i{display:grid;grid-template-columns:21px minmax(0,1fr);gap:9px;padding:6px 0 6px 12px;border-left:2px solid var(--border);font-size:.84em;line-height:1.5}
+.dnt-i.act{border-left-color:var(--indigo);background:rgba(31,95,139,.05)}
+.dnt-ic{text-align:center;line-height:1.4}
+.dnt-b{color:var(--muted)}
+.dnt-b b{color:var(--text);font-weight:700}
+.sch{position:relative;margin-top:12px}
+.sch::before{content:'';position:absolute;left:58px;top:8px;bottom:10px;width:2px;background:#e9e1d2}
+.sr{display:grid;grid-template-columns:44px 14px 1fr;gap:8px;padding:7px 0;align-items:start}
+.st{text-align:right;font-weight:700;font-size:.82em;color:var(--indigo);padding-top:2px}
+.sdot{display:flex;justify-content:center;padding-top:6px;position:relative;z-index:1}
+.sdot::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--pc,var(--teal));box-shadow:0 0 0 3px var(--card)}
+.sc{font-size:.86em;line-height:1.45}
+.sc .n{color:var(--muted);font-size:.92em}
+.mlink{color:var(--indigo);text-decoration:none;border-bottom:1px dotted var(--indigo)}
+.sc .mlink:hover{color:var(--red);border-bottom-color:var(--red)}
+.hrs{color:var(--teal);font-weight:600}
+.ft{text-align:center;margin-top:36px;font-size:.78em;color:var(--muted);line-height:1.6}
+@media(max-width:520px){body{padding:12px}.hdr{margin:-12px -12px 0}.hdr h1{font-size:1.6em}.tab{font-size:.72em;padding:9px 3px}.dh{padding:11px 13px}.day-collage{height:82px}.day-collage.single{height:170px}.db{padding:13px 14px}.sr{grid-template-columns:40px 14px 1fr}.sch::before{left:54px}.wxs{padding:9px 13px 7px}.wxs-bars{gap:2px}.wxs.dry{padding:7px 13px}.wxs-b{height:28px}.dnt-i{padding-left:9px;gap:7px;grid-template-columns:19px minmax(0,1fr)}}
+/* ── Jedzenie — arkusze z checkboxami ── */
+.ck-top{display:flex;align-items:center;gap:12px;margin:2px 0 18px}
+.ck-bar{flex:1;height:8px;border-radius:2px;background:#e9e1d2;overflow:hidden}
+.ck-bar-f{height:100%;background:var(--teal);border-radius:2px;transition:width .25s}
+.ck-top-l{font-size:.8em;font-weight:700;color:var(--muted);white-space:nowrap}
+.ck-card{background:var(--card);border:1px solid var(--border);border-radius:2px;margin-bottom:6px;overflow:hidden}
+.ck-row{display:flex;align-items:flex-start;gap:10px;padding:10px 16px;cursor:pointer;transition:background .12s}
+.ck-row+.ck-row{border-top:1px solid var(--border)}
+.ck-row:hover{background:#faf6ee}
+.ck-cb{flex:0 0 auto;width:18px;height:18px;border:1.5px solid var(--border);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;margin-top:1px;transition:.15s}
+.ck-on .ck-cb{background:var(--teal);border-color:var(--teal)}
+.ck-tx{font-size:.9em;line-height:1.45;padding-top:1px;flex:1;min-width:0}
+.ck-tx b{font-weight:700}
+.ck-on .ck-tx{text-decoration:line-through;opacity:.5}
+.ck-d{color:var(--muted);font-weight:400}
+.ck-grp{display:flex;align-items:center;gap:12px;margin:26px 0 12px}
+.ck-grp:first-of-type{margin-top:4px}
+.ck-grp::after{content:'';flex:1;min-width:20px;height:1px;background:var(--border)}
+.ck-mon{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--pc,var(--kin));display:flex;align-items:center;justify-content:center;font-size:1.15em;flex:none;line-height:1}
+.ck-gt2{flex:0 1 auto;min-width:0;font-family:var(--font-serif);font-weight:700;font-size:1.12em;color:var(--text)}
+.ck-gc2{order:1;font-size:.74em;font-weight:700;color:var(--muted)}
+.food-recs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mchip{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:2px;font-size:.92em;font-weight:600;color:var(--indigo);border:1px solid color-mix(in srgb,var(--indigo) 35%,transparent);background:color-mix(in srgb,var(--indigo) 7%,transparent);text-decoration:none;white-space:normal;transition:.15s;vertical-align:1px}
+.mchip:hover{background:color-mix(in srgb,var(--indigo) 15%,transparent)}
+.mchip svg{flex:none}
+.ck-on .mchip{color:var(--muted);border-color:var(--border);background:none}
+/* ── Zdjęcia dni — lightbox ── */
+.lightbox{position:fixed;inset:0;background:rgba(30,22,14,.85);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.lb-inner{max-width:94vw;max-height:92vh;display:flex;flex-direction:column;gap:14px;align-items:center}
+.lb-inner img{max-width:94vw;max-height:76vh;border-radius:2px;box-shadow:0 12px 44px rgba(0,0,0,.5);object-fit:contain;background:#fff}
+.lb-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.lb-btn{padding:10px 20px;border:none;border-radius:2px;font-family:var(--font);font-weight:700;font-size:.9em;cursor:pointer;background:#fffdf8;color:var(--text)}
+.lb-btn:hover{filter:brightness(.96)}
+.lb-cap{color:#e8e2d6;font-size:.82em;text-align:center;max-width:640px;line-height:1.5}
+.lb-cap a{color:#f0d98a;text-decoration:underline}
+.img-credits{margin:8px 0 4px;font-size:.76em;color:var(--muted)}
+.img-credits summary{cursor:pointer;font-weight:600;padding:6px 2px;list-style:none}
+.img-credits summary::-webkit-details-marker{display:none}
+.img-credits-b{padding:6px 4px 4px;line-height:1.7;color:#9a9081}
+.img-credits-b a{color:var(--indigo);text-decoration:none}
+/* ── Nawigacja dni ── */
+.day-nav{position:sticky;top:0;z-index:10;display:flex;gap:5px;overflow-x:auto;padding:10px 2px;margin:0 0 10px;background:var(--bg);-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.day-nav::-webkit-scrollbar{display:none;height:0;width:0}
+.day-nav a{flex:0 0 auto;font-size:.72em;font-weight:700;text-decoration:none;padding:4px 9px;border-radius:2px;border:1px solid transparent;transition:.15s}
+.day-nav a:hover{transform:translateY(-1px);filter:brightness(.97)}
+.dn-top{flex:0 0 auto;position:sticky;left:0;z-index:2;font-size:.78em;font-weight:700;padding:4px 10px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer;font-family:var(--font);transition:.15s;box-shadow:2px 0 6px rgba(0,0,0,.06)}
+.dn-top:hover{color:var(--text);filter:brightness(.97)}
+.dn-1{background:#f8e6de;color:#8f3a1f;border-color:#eed2c6}
+.dn-2{background:#e1edf5;color:#1a4c70;border-color:#cddfeb}
+.dn-3{background:#e9efe0;color:#445c28;border-color:#d7e1c9}
+/* Print button */
+.print-btn{font-family:var(--font);background:var(--card);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:.82em;font-weight:600;padding:8px 16px;border-radius:2px;transition:.2s}
+.print-btn:hover{border-color:var(--indigo);color:var(--indigo)}
+/* Print / PDF */
+@media print{
+  body{padding:0;background:#fff;color:#000;font-size:11pt}
+  .tabs,.day-nav,.noprint,.print-btn,.day-collage,.img-credits{display:none!important}
+  .pnl{display:block!important;max-width:none;margin:0}
+  .pnl#pfood{page-break-before:always}
+  .dc{box-shadow:none;border:1px solid #ccc;background:transparent}
+  .sr{break-inside:avoid}
+  .dh{break-after:avoid}
+  .pdiv{break-after:avoid;margin:14px 0 10px}
+  .hdr{margin:0 0 12px;padding:0 0 10px;background:none}
+  .dc,.sdot::before,.dh .dnum b,.pdiv .mon{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{color:#000;text-decoration:none}
+  .tip-d{display:block;background:transparent!important;border-left:2px solid #bbb;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .tip-d[open]{background:transparent!important}
+  .tip-s{color:#000;cursor:default;font-size:9.5pt}
+  .tip-s::before{content:'•';color:#000}
+  .tip-b{color:#222;font-size:9.5pt}
+  .vsel{border:1px solid #ccc;background:transparent!important;break-inside:avoid}
+  .vsel-h{color:#000}
+  .vsel-d,.vsel-c{color:#222}
+  .vbadge{background:transparent!important;color:#000;border-color:#999}
+  .dog-egg{display:none!important}
+}
+/* ── Ciekawostki (rozwijane detale w planie) ── */
+.tip-d{margin:6px 0 2px;border-left:2px dashed var(--kin);border-radius:0;background:#fdf6e7}
+.tip-d[open]{background:#f9efd8}
+.tip-s{cursor:pointer;padding:6px 11px;color:#9a7a25;font-weight:700;font-size:.84em;list-style:none;display:flex;align-items:center;gap:7px;user-select:none}
+.tip-s::-webkit-details-marker{display:none}
+.tip-s::marker{display:none;content:''}
+.tip-s::after{content:'';margin-left:auto;flex:none;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--kin);transition:transform .2s}
+.tip-d[open] .tip-s::after{transform:rotate(180deg)}
+.tip-b{padding:3px 11px 9px 11px;font-size:.9em;color:var(--muted);line-height:1.6}
+/* ── Warianty dnia (A/B) — przełącznik i opis kryteriów ── */
+.vsel{margin:12px 0 2px;border:2px solid var(--border);border-radius:2px;background:color-mix(in srgb,var(--indigo) 4%,transparent)}
+.vsel-h{font-size:.8em;font-weight:700;color:var(--indigo);padding:9px 11px 0;line-height:1.45}
+.vsel-btns{display:flex;flex-wrap:wrap;gap:6px;padding:8px 11px}
+.vbtn{font:inherit;font-size:.8em;font-weight:700;cursor:pointer;padding:5px 11px;border-radius:2px;border:2px solid color-mix(in srgb,var(--indigo) 30%,transparent);background:var(--card);color:var(--indigo);transition:.15s}
+.vbtn:hover{border-color:var(--indigo)}
+.vbtn.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.vbtn b{font-family:var(--font-serif);margin-right:5px}
+.vsel-d{font-size:.82em;line-height:1.55;color:var(--muted);padding:0 11px 10px}
+.vsel-d b{color:var(--text)}
+.vsel-c{margin-top:4px;color:var(--teal);font-weight:600}
+.vbadge{display:inline-block;font-size:.72em;font-weight:700;font-family:var(--font-serif);background:color-mix(in srgb,var(--indigo) 12%,transparent);color:var(--indigo);border:1px solid color-mix(in srgb,var(--indigo) 30%,transparent);border-radius:2px;padding:0 5px;margin-right:6px;vertical-align:1px}
+/* ── Tryb „TERAZ" — bieżący dzień i punkt planu ── */
+.today-pill{display:inline-block;font-family:var(--font);font-size:.62em;font-weight:700;background:var(--red);color:#fff;border-radius:12px;padding:2px 9px;margin-left:8px;vertical-align:middle;letter-spacing:.09em}
+.sr-past{opacity:.5}
+.sr-now{background:linear-gradient(90deg,rgba(192,83,47,.08),transparent 70%);border-radius:2px}
+.sr-now .sdot::before{background:var(--red);animation:nowPulse 2.2s ease-in-out infinite}
+@keyframes nowPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+.now-pill{position:fixed;right:14px;bottom:14px;z-index:60;display:none;align-items:center;gap:10px;max-width:min(80vw,420px);background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:9px 14px;cursor:pointer;font-family:var(--font)}
+.now-pill:hover{filter:brightness(1.03)}
+.now-pill .np-k{font-size:.6em;font-weight:700;color:var(--red);letter-spacing:.1em;white-space:nowrap;flex:none}
+.now-pill .np-body{display:flex;flex-direction:column;min-width:0}
+.now-pill .np-t{font-size:.8em;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.now-pill .np-n{font-size:.68em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ── Pogoda + słońce w nagłówku dnia ── */
+.dwx{font-size:.72em;color:var(--muted);margin-top:3px;letter-spacing:.01em}
+/* ── Pasek godzinowy opadów (pod nagłówkiem dnia) ── */
+.wxs{padding:10px 18px 8px;background:#fbf7ee;border-bottom:1px solid #f1ebde}
+.wxs.dry{padding:7px 18px;font-size:.72em;color:var(--muted);letter-spacing:.01em}
+.wxs-bars{display:flex;align-items:flex-end;gap:3px;cursor:pointer;touch-action:pan-y}
+.wxs-out{margin-top:6px;font-size:.68em;color:var(--muted);letter-spacing:.01em;line-height:1.25;min-height:1.25em}
+.wxs-out.on{color:var(--text);font-weight:700}
+.wxs-c{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:4px}
+.wxs-c.sel .wxs-b{outline:1.5px solid var(--kin)}
+.wxs-c.sel .wxs-h{color:var(--kin);font-weight:700}
+.wxs-b{position:relative;height:34px;border-bottom:1px solid #e2d9c8}
+.wxs-b i{position:absolute;left:0;right:0;bottom:0;display:block;min-height:2px}
+.wxs-b .wxs-p{opacity:.38}
+.wxs-b.lv0 i{background:#b8ae9b}
+.wxs-b.lv1 i{background:var(--indigo)}
+.wxs-b.lv2 i{background:var(--red)}
+.wxs-h{font-size:.56em;color:var(--muted);text-align:center;line-height:1;height:8px;letter-spacing:0}
+/* ── Parasolka przy godzinie na osi dnia ── */
+.stw{display:block;margin-top:3px;font-size:.82em;font-weight:600;line-height:1.3;white-space:nowrap;letter-spacing:-.02em}
+.stw svg{width:1em;height:1em;vertical-align:-.15em;margin-right:2px}
+.stw i{display:block;font-style:normal;font-weight:400;font-size:.9em;opacity:.8}
+.stw.lv1{color:var(--indigo)}
+.stw.lv2{color:var(--red)}
+/* ── Easter egg: pies (3× klik w odliczanie) ── */
+.dog-egg{position:fixed;right:max(6px,env(safe-area-inset-right));bottom:0;z-index:300;width:min(64vw,460px);pointer-events:none;transform:translateY(112%) rotate(2deg);transition:transform .1s}
+.dog-egg.in{animation:dogIn .8s cubic-bezier(.34,1.56,.64,1) forwards}
+.dog-egg.out{animation:dogOut .5s ease-in forwards}
+@keyframes dogIn{0%{transform:translateY(112%) rotate(2deg)}70%{transform:translateY(-4%) rotate(-2deg)}100%{transform:translateY(6%) rotate(0)}}
+@keyframes dogOut{0%{transform:translateY(6%) rotate(0)}100%{transform:translateY(112%) rotate(3deg)}}
+.dog-egg img{width:100%;height:auto;display:block;filter:drop-shadow(-6px 8px 14px rgba(0,0,0,.32));animation:dogWag 1.6s ease-in-out .8s infinite}
+@keyframes dogWag{0%,100%{transform:rotate(0)}25%{transform:rotate(-1.2deg)}75%{transform:rotate(1.2deg)}}
+/* ── Tryb ciemny — „Adriatyk nocą" ── */
+html.dark{color-scheme:dark;--bg:#14171b;--card:#1d2127;--red:#e07a55;--gold:#d8b060;--kin:#cfa75a;--teal:#9dbb6a;--indigo:#7fb3d9;--text:#ece6da;--muted:#a39c90;--border:#33373e;--shadow:0 6px 20px rgba(0,0,0,.4);--p1:#e07a55;--p2:#7fb3d9;--p3:#9dbb6a}
+html.dark .hdr{background:#181b20;background-image:repeating-radial-gradient(circle at 50% 150%,rgba(127,179,217,.06) 0 15px,transparent 15px 30px);border-bottom-color:#262a30}
+html.dark .hdr .it{color:#6b6559}
+html.dark .vbtn.on{color:#14171b}
+html.dark .day-collage{background:#262a30}
+html.dark .day-collage img{filter:brightness(.82)}
+html.dark .dh{border-bottom-color:#2a2e35}
+html.dark .dh .dsep{background:#343942}
+html.dark .dh .dnum i{color:#78705f}
+html.dark .sch::before{background:#343942}
+html.dark .dnt-i{border-left-color:#3a3f47}
+html.dark .dnt-i.act{border-left-color:var(--indigo);background:rgba(127,179,217,.07)}
+html.dark .wxs{background:#1a1d22;border-bottom-color:#2a2e35}
+html.dark .wxs-b{border-bottom-color:#3a3f47}
+html.dark .wxs-b.lv0 i{background:#6e6558}
+html.dark .tip-d{background:#282218;border-left-color:#8a6d33}
+html.dark .tip-d[open]{background:#2d261a}
+html.dark .tip-s{color:#d8b060}
+html.dark .ck-row:hover{background:#252a31}
+html.dark .ck-bar{background:#343942}
+html.dark .dn-1{background:#3a2620;color:#eba28c;border-color:#4d3028}
+html.dark .dn-2{background:#1f2f3c;color:#a5c9e6;border-color:#2b3e4e}
+html.dark .dn-3{background:#28321f;color:#bcd48f;border-color:#35422a}
+html.dark .now-pill{box-shadow:0 8px 24px rgba(0,0,0,.55)}
+html.dark .hrs{color:#b3cf80}
+html.dark .dog-egg img{filter:drop-shadow(-6px 8px 16px rgba(0,0,0,.55))}
+</style>
+
+<div class="hdr">
+  <div class="hdr-row">
+    <span class="emblem"><svg viewBox="0 0 512 512" width="46" height="46" aria-hidden="true"><rect width="512" height="512" fill="#f5e4cc"/><circle cx="256" cy="200" r="96" fill="#d0603a"/><rect y="290" width="512" height="90" fill="#1f5f8b"/><rect y="372" width="512" height="140" fill="#e7d2aa"/><path d="M176 280 L256 152 L336 280 Z" fill="#6f6a62"/><circle cx="256" cy="146" r="13" fill="#fbf6ec"/><rect x="190" y="272" width="132" height="124" fill="#fbf6ec"/><path d="M236 396 v-46 a20 20 0 0 1 40 0 v46 Z" fill="#8a6e48"/></svg></span>
+    <div class="hdr-titles">
+      <h1>Bari <span>2026</span></h1>
+      <div class="it">Puglia · buon viaggio</div>
+    </div>
+  </div>
+  <div class="hdr-rule"></div>
+  <div class="sub" id="subtitle"></div>
+  <div class="hdr-info-row">
+    <div class="cd-head" id="cdHead"></div>
+    <button class="theme-btn noprint" id="themeBtn" onclick="toggleTheme()" title="Przełącz tryb jasny/ciemny" aria-label="Przełącz motyw">🌙</button>
+  </div>
+</div>
+<div class="tabs">
+  <div class="tab on" onclick="selectTab(0)"><svg class="tic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/></svg>Plan</div>
+  <div class="tab" onclick="selectTab(1)"><svg class="tic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M10 4v3M13 3v4M16 5v2"/></svg>Jedzenie</div>
+</div>
+<div class="pnl on" id="pplan"></div>
+<div class="pnl" id="pfood"></div>
+<div class="noprint" style="text-align:center;margin:26px auto 0;max-width:740px"><button class="print-btn" onclick="window.print()">🖨️ Drukuj / zapisz PDF</button></div>
+<div class="ft" id="footer"></div>
+
+<script>
+const TAB_NAMES=['plan','jedzenie'];
+const TZ='Europe/Rome';
+function sw(i){document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('on',j===i));document.querySelectorAll('.pnl').forEach((p,j)=>p.classList.toggle('on',j===i));const np=document.getElementById('nowPill');if(np)np.style.display=(i===0&&np.dataset.has==='1')?'flex':'none'}
+function selectTab(i){sw(i);try{history.replaceState(null,'','#'+TAB_NAMES[i])}catch(e){location.hash=TAB_NAMES[i]}}
+function tabFromHash(){const h=decodeURIComponent(location.hash.slice(1));if(/^d\d+$/.test(h))return 0;const i=TAB_NAMES.indexOf(h);return i>=0?i:0}
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+
+// ── Warianty dnia (A/B) ──
+// Deklaracja w bloku dnia:  ? A* | Etykieta | Krótki opis | Kiedy wybrać
+// (gwiazdka = wariant domyślny; linia „? " bez „ | " to nagłówek decyzji)
+// Punkt harmonogramu należący do wariantu:  - A> 12:05 | Tytuł | Opis | Map query
+function addVariant(cd,body){
+  if(body.indexOf(' | ')<0){cd.vh=body;return}
+  const p=body.split(' | '),raw=(p[0]||'').trim(),def=raw.endsWith('*');
+  const k=(def?raw.slice(0,-1):raw).trim().toUpperCase();
+  if(!k)return;
+  cd.vr.push({k,lb:(p[1]||'').trim(),sh:(p[2]||'').trim(),cond:(p[3]||'').trim(),def});
+}
+function scPoint(body){
+  const p=body.split(' | ');
+  let tm=p[0]||'',v='';
+  const m=tm.match(/^\s*([A-Z])>\s*/);
+  if(m){v=m[1];tm=tm.slice(m[0].length)}
+  return{tm,ti:p[1]||'',nt:p[2]||'',mq:(p[3]||'').trim(),v};
+}
+function newDay(head){const p=head.split(' | ');return{lb:p[0]||'',ds:p[1]||'',ts:p[2]||'',ht:p[3]||'',sm:'',sc:[],vr:[],vh:'',nt:[]}}
+// Notka dnia: `> 🌡️ Etykieta | treść` (`>!` = akcja do wykonania, nie sama informacja)
+function addNote(cd,body,act){
+  const t=body.trim();if(!t)return;
+  const m=/^(\p{Extended_Pictographic}️?)\s*/u.exec(t);
+  const rest=m?t.slice(m[0].length):t,i=rest.indexOf(' | ');
+  cd.nt.push({ic:m?m[1]:'',lb:i<0?'':rest.slice(0,i).trim(),tx:(i<0?rest:rest.slice(i+3)).trim(),act:!!act});
+}
+// Klucz, pod którym ciekawostka przykleja się do punktu: dzień + ewentualny wariant + czas
+function tipKey(day,v,tm){return day+'_'+(v?v+'>':'')+tm}
+function parse(text){
+  const lines=text.split('\n'),meta={},parts=[],food=[],tips=[];
+  let sec='',cp=null,cd=null;
+  for(const raw of lines){
+    const t=raw.trim();
+    if(t.startsWith('### ')){sec=t.slice(4).trim();continue}
+    if(sec==='META'){const m=t.match(/^(\w+):\s*(.+)$/);if(m)meta[m[1]]=m[2];continue}
+    if(sec==='JEDZENIE'){if(!t||t.startsWith('#'))continue;const g=t.split(' :: ');if(g.length>=2){const p=g[1].split(' | ');const recs=(p[3]||'').trim()?p[3].split(';;').map(r=>{const a=r.split('@');return{nm:a[0].trim(),mq:(a[1]||a[0]).trim()}}).filter(r=>r.nm):[];food.push({grp:g[0].trim(),lb:(p[0]||'').trim(),dt:(p[1]||'').trim(),mq:(p[2]||'').trim(),recs})}continue}
+    if(sec==='CIEKAWOSTKI'){
+      if(!t||t.startsWith('#'))continue;
+      const p=t.split(' | ');
+      if(p.length>=5){
+        const dm=p[0].trim().match(/^D(\d+)$/);
+        // Pole czasu może wskazywać kilka punktów naraz: „A>16:00; B>6:00"
+        if(dm){const tm=p[1].trim();
+          const keys=tm.split(';').map(x=>x.trim()).filter(Boolean).map(x=>{const vm=x.match(/^([A-Z])>\s*(.+)$/);return vm?{v:vm[1],tm:vm[2].trim()}:{v:'',tm:x}});
+          tips.push({day:+dm[1],tm,keys,icon:p[2].trim(),ti:p[3].trim(),dx:p.slice(4).join(' | ').trim()});
+        }
+      }
+      continue;
+    }
+    if(sec==='PLAN'){
+      if(t.startsWith('# ')){cp={title:t.slice(2).trim(),days:[]};parts.push(cp);cd=null;continue}
+      if(t.startsWith('== ')){cd=newDay(t.slice(3));if(cp)cp.days.push(cd);continue}
+      if(t.startsWith('? ')&&cd){addVariant(cd,t.slice(2).trim());continue}
+      if(t.startsWith('>! ')&&cd){addNote(cd,t.slice(3),true);continue}
+      if(t.startsWith('> ')&&cd){addNote(cd,t.slice(2),false);continue}
+      if(t.startsWith('- ')&&cd){cd.sc.push(scPoint(t.slice(2)));continue}
+      if(t&&cd&&!t.startsWith('#')&&!t.startsWith('==')){cd.sm+=(cd.sm?' ':'')+t;continue}
+    }
+  }
+  return{meta,parts,food,tips}
+}
+
+const D=parse(PLAN_DATA);
+function dayNumOf(d){const m=d.lb.match(/\d+/);return m?+m[0]:0}
+const TRIP_DAYS=Math.max(0,...D.parts.flatMap(p=>p.days).map(dayNumOf));
+document.getElementById('subtitle').textContent=D.meta.subtitle||'';
+document.getElementById('footer').innerHTML=`Bari 2026 · Ostatnia aktualizacja: ${esc(D.meta.updated||'?')}`;
+
+const PIN_SVG='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>';
+const PLANE_SVG='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3z"/></svg>';
+function mapChip(mq,label){return `<a class="mchip" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mq)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${PIN_SVG}${label||'mapa'}</a>`}
+
+// Format a schedule note: emphasise the opening-hours (🕐) segment
+function fmtNote(n){const e=esc(n);const i=e.indexOf('🕐');return i<0?e:e.slice(0,i)+'<span class="hrs">'+e.slice(i)+'</span>'}
+
+// Render plan
+const tipMap={};D.tips.forEach(t=>{(t.keys||[{v:'',tm:t.tm}]).forEach(k=>{const key=tipKey(t.day,k.v,k.tm);(tipMap[key]=tipMap[key]||[]).push(t)})});
+// Auto-link punktów z jedzeniem do mapy z restauracjami w okolicy (gdy brak własnej mapy)
+const DAY_CITY={1:'Bari',2:'Polignano a Mare',3:'Alberobello',4:'Bari'};
+const FOOD_EMO=['🍳','🍜','🍽️','🍦','☕','🍕','🍝','🥐','🍷','🐟','🦪','🍰'];
+function isFood(t){return FOOD_EMO.some(e=>t.startsWith(e))}
+function foodMq(title,dnum){
+  const m=title.match(/(?:\bw\b|\bwe\b|\bprzy\b|\bna\b|:)\s+(?:okolicy\s+|pobliżu\s+|starym\s+)?([A-ZÀ-Ž][\p{L}'’/\-]+)/u);
+  let area=m?m[1]:'';
+  if(/^(hotelu|hotel|drodze|drogi|okolicy|pobliżu|zapasów)$/i.test(area))area='';
+  const city=DAY_CITY[+dnum]||'';
+  if(area)return 'restauracje '+area+(city&&area.toLowerCase()!==city.toLowerCase()?' '+city:'');
+  return city?'restauracje '+city:'';
+}
+// Zdjęcia dni — nagłówek karty dnia. {f:plik, t:tytuł} + opcjonalnie {by:autor, lic:licencja, u:link do źródła}
+const DAY_IMG={
+ 1:[{f:'img/day1-bari-vecchia.svg',t:'Bari Vecchia'}],
+ 2:[{f:'img/day2-polignano.svg',t:'Polignano a Mare'}],
+ 3:[{f:'img/day3-trulli.svg',t:'Trulli w Alberobello'}],
+ 4:[{f:'img/day4-lungomare.svg',t:'Lungomare o zachodzie'}]
+};
+function imgCredit(im){return im.by?` · fot. ${esc(im.by)} — <a href="${im.u}" target="_blank" rel="noopener">${esc(im.lic||'źródło')}</a>`:''}
+function openPhoto(dnum,ix){const im=(DAY_IMG[dnum]||[])[ix];if(!im)return;
+  let ov=document.getElementById('imgLightbox');
+  if(!ov){ov=document.createElement('div');ov.id='imgLightbox';ov.className='lightbox';document.body.appendChild(ov);ov.addEventListener('click',e=>{if(e.target===ov)closeLightbox()});}
+  ov.innerHTML=`<div class="lb-inner"><img src="${im.f}" alt=""><div class="lb-cap">${esc(im.t)}${imgCredit(im)}</div><div class="lb-actions"><button class="lb-btn" onclick="closeLightbox()">Zamknij</button></div></div>`;
+  ov.style.display='flex';
+}
+function closeLightbox(){const ov=document.getElementById('imgLightbox');if(ov)ov.style.display='none'}
+// Wybór wariantu A/B per dzień — zapamiętywany w localStorage ('ALL' = pokaż oba)
+function getVariants(){try{return JSON.parse(localStorage.getItem('bari26_variant')||'{}')}catch(e){return{}}}
+function activeVariant(key,vrs){
+  if(!vrs||!vrs.length)return'';
+  const s=getVariants()[key];
+  if(s==='ALL'||vrs.some(v=>v.k===s))return s;
+  const d=vrs.find(v=>v.def);
+  return d?d.k:vrs[0].k;
+}
+function setVariant(key,v){
+  const before=document.getElementById('d'+key);
+  const top=before?before.getBoundingClientRect().top:null;
+  const s=getVariants();s[key]=v;try{localStorage.setItem('bari26_variant',JSON.stringify(s))}catch(e){}
+  renderPlanTab();
+  if(top!==null){const after=document.getElementById('d'+key);if(after)window.scrollBy(0,after.getBoundingClientRect().top-top)}
+}
+function variantBar(key,od,act){
+  let h='<div class="vsel">';
+  if(od.vh)h+=`<div class="vsel-h">${esc(od.vh)}</div>`;
+  h+='<div class="vsel-btns noprint">';
+  od.vr.forEach(v=>{h+=`<button class="vbtn${act===v.k?' on':''}" onclick="setVariant('${esc(key)}','${esc(v.k)}')"><b>${esc(v.k)}</b>${esc(v.lb)}</button>`});
+  h+=`<button class="vbtn${act==='ALL'?' on':''}" onclick="setVariant('${esc(key)}','ALL')">Oba</button></div>`;
+  (act==='ALL'?od.vr:od.vr.filter(v=>v.k===act)).forEach(v=>{
+    h+=`<div class="vsel-d"><b>${esc(v.k)} · ${esc(v.lb)}</b> — ${esc(v.sh)}${v.cond?`<div class="vsel-c">✔ ${esc(v.cond)}</div>`:''}</div>`;
+  });
+  return h+'</div>';
+}
+let imgCredits='';
+// ── Pogoda + wschód/zachód słońca per dzień ──
+// Współrzędne bazy każdego dnia (dla dnia z wariantami — cel wariantu domyślnego)
+const DAY_GEO={1:[41.13,16.87],2:[40.99,17.22],3:[40.78,17.24],4:[41.13,16.87]};
+function nowDate(){return window.__testNow?new Date(window.__testNow):new Date()}
+function tzParts(tz){const s=new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(nowDate());const m=s.match(/(\d{4})-(\d{2})-(\d{2}),?\s*(\d{2}):(\d{2})/);return m?{d:m[1]+'-'+m[2]+'-'+m[3],min:+m[4]*60+ +m[5]}:null}
+// Dzień 1 = data `start` z META
+function dayDate(n){const st=D.meta.start;if(!st)return'';const p=st.split('-');return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n-1)).toISOString().slice(0,10)}
+// Wschód/zachód słońca — liczone lokalnie (równanie wschodu słońca, NOAA), działa offline dla każdej daty
+function sunTimes(ds,lat,lon){
+  const rad=Math.PI/180,deg=180/Math.PI;
+  const Jdate=new Date(ds+'T00:00:00Z').getTime()/86400000+2440587.5;
+  const n=Math.round(Jdate-2451545.0+0.0008+lon/360);
+  const Jstar=n-lon/360;
+  const M=((357.5291+0.98560028*Jstar)%360+360)%360;
+  const C=1.9148*Math.sin(M*rad)+0.02*Math.sin(2*M*rad)+0.0003*Math.sin(3*M*rad);
+  const L=((M+C+180+102.9372)%360+360)%360;
+  const Jtransit=2451545.0+Jstar+0.0053*Math.sin(M*rad)-0.0069*Math.sin(2*L*rad);
+  const sinD=Math.sin(L*rad)*Math.sin(23.4397*rad),cosD=Math.cos(Math.asin(sinD));
+  const cosW=(Math.sin(-0.833*rad)-Math.sin(lat*rad)*sinD)/(Math.cos(lat*rad)*cosD);
+  if(cosW<-1||cosW>1)return null;
+  const w=Math.acos(cosW)*deg;
+  const f=j=>new Intl.DateTimeFormat('pl-PL',{timeZone:TZ,hour:'numeric',minute:'2-digit'}).format(new Date((j-2440587.5)*86400000));
+  return{rise:f(Jtransit-w/360),set:f(Jtransit+w/360)};
+}
+function getWxCache(){try{return JSON.parse(localStorage.getItem('bari26_wx')||'{}')}catch(e){return{}}}
+// ── Prognoza godzinowa opadów: pasek w nagłówku dnia + parasolki na osi czasu ──
+// Dane godzinowe trzymamy dla okna 6:00–23:00 (18 wartości: szansa % i mm/h)
+// WX_V = wersja formatu cache. Podbij, gdy zmieniasz kształt zapisu — inaczej przeglądarki
+// ze świeżym cache w starym formacie czekają z odświeżeniem do wygaśnięcia TTL.
+const WX_V=1,WX_H0=6,WX_HN=18;
+const WX_UMB='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.4 8.3a6.6 6.6 0 0 1 13.2 0z" fill="currentColor"/><path d="M8 1.6V12.2a1.8 1.8 0 0 1-3.6 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+function wxHours(n){const wx=(getWxCache().d||{})[n];return(wx&&wx.hp&&wx.hp.length===WX_HN)?wx:null}
+function wxLevel(p,mm){if(p>=70||mm>=2)return 2;if(p>=40)return 1;return 0}
+function fmtMm(v){return(Math.round(v*10)/10).toFixed(1).replace('.',',')}
+function hhmmToMin(t){const m=/^(\d{1,2}):(\d{2})$/.exec(String(t||'').trim());return m?+m[1]*60+ +m[2]:null}
+function dayWxStrip(dnum){
+  const n=+dnum,wx=dnum?wxHours(n):null;if(!wx)return'';
+  if(Math.max.apply(null,wx.hp)<20&&Math.max.apply(null,wx.hm)<0.2)return'<div class="wxs dry noprint">☀️ Bez opadów w prognozie</div>';
+  let bi=0;for(let i=1;i<WX_HN;i++)if((wx.hp[i]||0)>(wx.hp[bi]||0))bi=i;
+  const rd=i=>{const p=Math.round(wx.hp[i]||0),mm=wx.hm[i]||0;return(WX_H0+i)+':00 · '+p+'%'+(mm>=0.1?' · '+fmtMm(mm)+' mm':' · bez opadów')};
+  const def='szczyt '+rd(bi);
+  let h='<div class="wxs noprint"><div class="wxs-bars" title="Prognoza godzinowa opadów 6:00–23:00 (Open-Meteo). Wysokość słupka = szansa opadów, ciemniejszy rdzeń = ilość mm/h. Dotknij paska (albo przeciągnij palcem), żeby zobaczyć wartości.">';
+  for(let i=0;i<WX_HN;i++){
+    const hr=WX_H0+i,p=Math.round(wx.hp[i]||0),mm=wx.hm[i]||0,lv=wxLevel(p,mm);
+    const ph=p>0?Math.max(4,p):0,mh=mm>0?Math.min(ph,Math.max(4,Math.round(Math.min(100,mm/4*100)))):0;
+    h+=`<div class="wxs-c" data-r="${esc(rd(i))}"><div class="wxs-b lv${lv}">`
+      +(ph?`<i class="wxs-p" style="height:${ph}%"></i>`:'')
+      +(mh?`<i class="wxs-m" style="height:${mh}%"></i>`:'')
+      +`</div><span class="wxs-h">${hr%3===0?hr:''}</span></div>`;
+  }
+  return h+`</div><div class="wxs-out" data-def="${esc(def)}">${esc(def)}</div></div>`;
+}
+// Odczyt wartości pod paskiem: dotyk/przeciągnięcie na telefonie, hover przy myszy.
+// Bez zaznaczenia pasek pokazuje szczyt dnia, więc linijka nigdy nie stoi pusta.
+let wxDrag=null,wxHover=null;
+function wxPick(bars,x){let best=null,bd=Infinity;
+  for(const c of bars.children){const r=c.getBoundingClientRect(),d=Math.abs(x-(r.left+r.width/2));if(d<bd){bd=d;best=c}}
+  return best;
+}
+function wxShow(bars,cell){
+  if(!bars)return;
+  const prev=bars.querySelector('.wxs-c.sel');if(prev)prev.classList.remove('sel');
+  const out=bars.parentNode.querySelector('.wxs-out');if(!out)return;
+  if(cell){cell.classList.add('sel');out.textContent=cell.dataset.r;out.classList.add('on')}
+  else{out.textContent=out.dataset.def;out.classList.remove('on')}
+}
+function wxBarsAt(e){return e.target&&e.target.closest?e.target.closest('.wxs-bars'):null}
+document.addEventListener('pointerdown',e=>{
+  const bars=wxBarsAt(e);
+  if(wxDrag&&wxDrag!==bars)wxShow(wxDrag,null);
+  const sel=document.querySelector('.wxs-c.sel');
+  if(sel&&sel.parentNode!==bars)wxShow(sel.parentNode,null);
+  if(!bars)return;
+  wxDrag=bars;wxShow(bars,wxPick(bars,e.clientX));
+},{passive:true});
+document.addEventListener('pointermove',e=>{
+  if(wxDrag){wxShow(wxDrag,wxPick(wxDrag,e.clientX));return}
+  if(e.pointerType!=='mouse')return;
+  const bars=wxBarsAt(e);
+  if(bars!==wxHover){wxShow(wxHover,null);wxHover=bars}
+  if(bars)wxShow(bars,wxPick(bars,e.clientX));
+},{passive:true});
+document.addEventListener('pointerup',()=>{wxDrag=null},{passive:true});
+document.addEventListener('pointercancel',()=>{if(wxDrag)wxShow(wxDrag,null);wxDrag=null},{passive:true});
+// Znacznik przy punkcie: maksimum z okna do następnego punktu (przycięte do 3 h)
+function wxMark(dnum,tm,nextTm){
+  const wx=dnum?wxHours(+dnum):null;if(!wx)return'';
+  const s=hhmmToMin(tm);if(s===null)return'';
+  let e=hhmmToMin(nextTm);
+  if(e===null||e<=s)e=s+120;
+  if(e>s+180)e=s+180;
+  let bp=-1,bmm=0,bh=0;
+  for(let hr=Math.floor(s/60);hr<=Math.ceil(e/60)-1;hr++){
+    const i=hr-WX_H0;if(i<0||i>=WX_HN)continue;
+    const p=Math.round(wx.hp[i]||0),mm=wx.hm[i]||0;
+    if(p>bp||(p===bp&&mm>bmm)){bp=p;bmm=mm;bh=hr}
+  }
+  const lv=bp<0?0:wxLevel(bp,bmm);
+  if(!lv)return'';
+  return`<span class="stw lv${lv} noprint" title="szczyt ${bh}:00 · ${bp}%${bmm>=0.1?' · '+fmtMm(bmm)+' mm':''}">${WX_UMB}${bp}%${bmm>=0.5?'<i>'+fmtMm(bmm)+' mm</i>':''}</span>`;
+}
+// Notki dnia — wątki wyjęte z opisu: kontekst (kreska neutralna) i akcje do wykonania (kreska indygo)
+function dayNotes(od){
+  const ns=od.nt||[];if(!ns.length)return'';
+  return'<div class="dnt">'+ns.map(n=>
+    `<div class="dnt-i${n.act?' act':''}">${n.ic?`<span class="dnt-ic">${esc(n.ic)}</span>`:'<span class="dnt-ic"></span>'}`
+    +`<div class="dnt-b">${n.lb?`<b>${esc(n.lb)}</b> `:''}${fmtNote(n.tx)}</div></div>`
+  ).join('')+'</div>';
+}
+function dayMetaLine(dnum){
+  const n=+dnum;const g=DAY_GEO[n];if(!g||!dnum)return'';
+  const ds=dayDate(n);if(!ds)return'';
+  const sun=sunTimes(ds,g[0],g[1]);
+  let h=sun?`🌅 ${sun.rise} · 🌇 ${sun.set}`:'';
+  const wx=(getWxCache().d||{})[n];
+  const pp=(wx&&wx.pp!=null&&!wxHours(n))?' · ☔ '+Math.round(wx.pp)+'%':''; // przy pasku godzinowym dzienne % byłoby zdublowane
+  if(wx&&wx.tx!=null)h+=`${h?' &nbsp;·&nbsp; ':''}🌡️ ${Math.round(wx.tx)}°/${Math.round(wx.tn)}°${pp}`;
+  return h?`<div class="dwx" title="Wschód i zachód słońca (obliczane) · prognoza: Open-Meteo, odświeżana gdy jest internet">${h}</div>`:'';
+}
+const ROMAN=['I','II','III','IV','V','VI'];
+function renderPlanTab(){
+  let h1='',nav='<div class="day-nav"><button class="dn-top noprint" onclick="scrollToTop()" title="Przewiń na górę" aria-label="Przewiń na górę">↑</button>';
+  D.parts.forEach((part,pi)=>{
+    const c=String(pi%3+1);
+    const pm=part.title.match(/^\s*(Część\s*\d+)\s*[:：]\s*(.+)$/i);
+    const pk=(pm?pm[1]:part.title).toUpperCase();
+    const pn=pm?pm[2]:part.title;
+    h1+=`<div class="pdiv c${c}"><div class="mon">${ROMAN[pi]||pi+1}</div><div class="pt"><div class="pk">${esc(pk)}</div><div class="pn">${esc(pn)}</div></div></div>`;
+    part.days.forEach(od=>{
+      const dnum=String(dayNumOf(od)),anchor='d'+dnum;
+      nav+=`<a class="dn-${c}" href="#${anchor}">${dnum}</a>`;
+      const vrs=od.vr||[],act=activeVariant(dnum,vrs);
+      const rows=vrs.length?od.sc.filter(s=>!s.v||act==='ALL'||s.v===act):od.sc;
+      const has=rows.length>0,tbd=has?'':'tbd',dtitle=od.ts||od.lb;
+      const dimgs=DAY_IMG[+dnum]||null;
+      const collage=dimgs?`<div class="day-collage${dimgs.length===1?' single':''}">${dimgs.map((im,ix)=>`<img src="${im.f}" alt="${esc(im.t)}" title="${esc(im.t)}" loading="lazy" onclick="openPhoto(${+dnum},${ix})">`).join('')}</div>`:'';
+      h1+=`<div class="dc p-${c}" id="${anchor}">${collage}<div class="dh"><div class="dnum"><b>${dnum}</b><i>giorno</i></div><div class="dsep"></div><div class="dt"><div class="dn">${esc(dtitle)}</div><div class="dd">${esc(od.ds)}</div>${dayMetaLine(dnum)}</div></div>${dayWxStrip(dnum)}<div class="db ${tbd}"><div class="ds">${esc(od.sm)}</div>${dayNotes(od)}`;
+      if(vrs.length)h1+=variantBar(dnum,od,act);
+      if(has){h1+='<div class="sch">';rows.forEach((s,si)=>{const emq=s.mq||(isFood(s.ti)?foodMq(s.ti,dnum):'');const ti=emq?`<a class="mlink" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(emq)}" target="_blank" rel="noopener">${esc(s.ti)}</a>`:esc(s.ti);const stips=tipMap[tipKey(dnum,s.v,s.tm)]||[];let th='';stips.forEach(tip=>{th+=`<details class="tip-d"><summary class="tip-s">${esc(tip.icon)} ${esc(tip.ti)}</summary><div class="tip-b">${esc(tip.dx)}</div></details>`});const bdg=(s.v&&act==='ALL')?`<span class="vbadge">${esc(s.v)}</span>`:'';h1+=`<div class="sr" data-tm="${esc(s.tm)}"><div class="st">${esc(s.tm)}${wxMark(dnum,s.tm,rows[si+1]&&rows[si+1].tm)}</div><div class="sdot"></div><div class="sc"><strong>${bdg}${ti}</strong>${s.nt?'<br><span class="n">'+fmtNote(s.nt)+'</span>':''}${th}</div></div>`});h1+='</div>'}
+      // Nocleg: link do mapy; lot albo „do ustalenia" — zwykły tekst
+      const isFlight=/^lot/i.test(od.ht),plainHt=isFlight||/do ustalenia/i.test(od.ht);
+      const htLink=plainHt?esc(od.ht):`<a class="mlink" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(od.ht)}" target="_blank" rel="noopener">${esc(od.ht)}</a>`;
+      if(od.ht)h1+=`<div class="dht">${isFlight?'✈️':'🏨'} ${htLink}</div>`;
+      h1+='</div></div>';
+    });
+  });
+  if(!imgCredits){
+    const credited=Object.values(DAY_IMG).flat().filter(im=>im.by);
+    if(credited.length)imgCredits='<details class="img-credits"><summary>📷 Źródła zdjęć</summary><div class="img-credits-b">'+credited.map(im=>`${esc(im.t)}${imgCredit(im)}`).join('<br>')+'</div></details>';
+  }
+  document.getElementById('pplan').innerHTML=nav+'</div>'+h1+imgCredits;
+  updateNowMode();
+}
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+
+// ── Jedzenie: checklista „spróbowane" (localStorage) ──
+function getChk(store){try{return JSON.parse(localStorage.getItem(store)||'{}')}catch(e){return{}}}
+function saveChk(store,s){try{localStorage.setItem(store,JSON.stringify(s))}catch(e){}}
+function slug(s){return s.toLowerCase().replace(/[^a-z0-9ąćęłńóśźż]+/g,'-').replace(/^-|-$/g,'').slice(0,48)}
+const FOOD_STORE='bari26_food';
+const FOOD_MON={'Street food':['🥖','p-1'],'Makarony i morze':['🍝','p-2'],'Słodkie i kawa':['☕','p-3']};
+function toggleFood(key){const s=getChk(FOOD_STORE);s[key]=!s[key];saveChk(FOOD_STORE,s);renderFood()}
+function renderFood(){
+  const s=getChk(FOOD_STORE),items=D.food;
+  const groups=[],map={};
+  items.forEach(it=>{const g=it.grp;if(!map[g]){map[g]={grp:g,items:[]};groups.push(map[g])}map[g].items.push(it)});
+  const totalDone=items.filter(it=>s[slug(it.lb)]).length;
+  let h=`<div class="ck-top"><div class="ck-bar"><div class="ck-bar-f" style="width:${items.length?Math.round(totalDone/items.length*100):0}%"></div></div><div class="ck-top-l">${totalDone} / ${items.length}</div></div>`;
+  groups.forEach(g=>{
+    const gd=g.items.filter(it=>s[slug(it.lb)]).length;
+    const mon=FOOD_MON[g.grp]||['🍴','p-1'];
+    h+=`<div class="ck-grp ${mon[1]}"><span class="ck-mon">${esc(mon[0])}</span><span class="ck-gt2">${esc(g.grp)}</span><span class="ck-gc2">${gd}/${g.items.length}</span></div><div class="ck-card">`;
+    g.items.forEach(it=>{const key=slug(it.lb),ck=!!s[key];
+      let txt='<b>'+esc(it.lb)+'</b>'+(it.dt?'<span class="ck-d"> — '+esc(it.dt)+'</span>':'');
+      if(it.mq)txt+=' '+mapChip(it.mq);
+      if(it.recs.length)txt+='<span class="food-recs">'+it.recs.map(r=>mapChip(r.mq,esc(r.nm))).join('')+'</span>';
+      h+=`<div class="ck-row ${ck?'ck-on':''}" onclick="toggleFood('${key}')"><span class="ck-cb">${ck?'✓':''}</span><span class="ck-tx">${txt}</span></div>`;
+    });
+    h+='</div>';
+  });
+  document.getElementById('pfood').innerHTML=h;
+}
+renderFood();
+
+// ── Odliczanie w nagłówku ──
+function daysUntil(dateStr){const d=new Date(dateStr+'T00:00:00'),t=new Date();t.setHours(0,0,0,0);return Math.round((d-t)/86400000)}
+(function(){const el=document.getElementById('cdHead');if(!el||!D.meta.start)return;const diff=daysUntil(D.meta.start);if(diff>0)el.innerHTML=PLANE_SVG+' Do wylotu: '+diff+(diff===1?' dzień':' dni');else if(diff===0)el.innerHTML=PLANE_SVG+' Dziś wylot! 🇮🇹';else if(diff>-TRIP_DAYS)el.textContent='🇮🇹 Wycieczka trwa — buon viaggio!';else el.style.display='none';})();
+
+// ── Easter egg: 3× klik w odliczanie → pies żegna na drogę ──
+(function(){
+  const trg=document.getElementById('cdHead');
+  if(!trg)return;
+  let clicks=[],hideT=null;
+  trg.addEventListener('click',()=>{
+    const now=Date.now();
+    clicks=clicks.filter(t=>now-t<1200);clicks.push(now);
+    if(clicks.length>=3){clicks=[];showDog();}
+  });
+  function showDog(){
+    let d=document.getElementById('dogEgg');
+    if(!d){
+      d=document.createElement('div');d.id='dogEgg';d.className='dog-egg';
+      d.innerHTML='<img src="img/dog.png" alt="Nasz pies" draggable="false">';
+      d.addEventListener('click',hideDog);
+      document.body.appendChild(d);
+    }
+    clearTimeout(hideT);
+    d.style.pointerEvents='auto';
+    d.classList.remove('out');
+    void d.offsetWidth; // restart animacji przy ponownym kliknięciu
+    d.classList.add('in');
+    hideT=setTimeout(hideDog,6000);
+  }
+  function hideDog(){
+    const d=document.getElementById('dogEgg');if(!d)return;
+    clearTimeout(hideT);
+    d.style.pointerEvents='none';
+    d.classList.remove('in');d.classList.add('out');
+  }
+})();
+
+// Print/PDF: rozwiń wszystkie ciekawostki, żeby trafiły do wydruku, potem przywróć stan na ekranie
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('.tip-d:not([open])').forEach(d=>{d.open=true;d.dataset.printopen='1'})});
+window.addEventListener('afterprint',()=>{document.querySelectorAll('.tip-d[data-printopen]').forEach(d=>{d.open=false;d.removeAttribute('data-printopen')})});
+
+// ── Przełącznik motywu (jasny/ciemny, zapamiętany w localStorage) ──
+function applyTheme(t){
+  document.documentElement.classList.toggle('dark',t==='dark');
+  const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=t==='dark'?'#14171b':'#c0532f';
+  const b=document.getElementById('themeBtn');if(b)b.textContent=t==='dark'?'☀️':'🌙';
+}
+function toggleTheme(){const t=document.documentElement.classList.contains('dark')?'light':'dark';try{localStorage.setItem('bari26_theme',t)}catch(e){}applyTheme(t)}
+applyTheme(document.documentElement.classList.contains('dark')?'dark':'light');
+
+// ── Tryb „TERAZ": podświetlenie dzisiejszego dnia i bieżącego punktu planu ──
+// Dzień N = start (D.meta.start = dzień 1) + N−1; czas liczony wg strefy Włoch (ta sama co Polska).
+function tripDayNum(){
+  if(!D.meta.start)return null;
+  const cur=tzParts(TZ);if(!cur)return null;
+  const n=Math.round((new Date(cur.d+'T00:00:00Z')-new Date(dayDate(1)+'T00:00:00Z'))/86400000)+1;
+  return(n>=1&&n<=TRIP_DAYS)?n:null;
+}
+function ensureNowPill(){
+  let p=document.getElementById('nowPill');
+  if(!p){
+    p=document.createElement('div');p.id='nowPill';p.className='now-pill noprint';
+    p.innerHTML='<span class="np-k">▶ TERAZ</span><span class="np-body"><span class="np-t"></span><span class="np-n"></span></span>';
+    p.onclick=()=>{if(p._target){p._target.scrollIntoView({block:'center',behavior:'smooth'})}};
+    document.body.appendChild(p);
+  }
+  return p;
+}
+function updateNowMode(){
+  document.querySelectorAll('.sr-now,.sr-past').forEach(el=>el.classList.remove('sr-now','sr-past'));
+  document.querySelectorAll('.today-pill').forEach(el=>el.remove());
+  const pill=ensureNowPill();
+  const n=tripDayNum();
+  const off=()=>{pill.dataset.has='0';pill.style.display='none'};
+  if(n===null){off();return}
+  const dc=document.getElementById('d'+n);
+  if(!dc){off();return}
+  const dn=dc.querySelector('.dh .dn');
+  if(dn){const sp=document.createElement('span');sp.className='today-pill';sp.textContent='DZIŚ';dn.appendChild(sp)}
+  const cur=tzParts(TZ);
+  if(!cur){off();return}
+  const rows=[...dc.querySelectorAll('.sr')].map(el=>{const m=(el.dataset.tm||'').match(/^(\d{1,2}):(\d{2})/);return m?{el,min:+m[1]*60+ +m[2]}:null}).filter(Boolean);
+  let curRow=null,nextRow=null;
+  rows.forEach(r=>{if(r.min<=cur.min)curRow=r;else if(!nextRow)nextRow=r});
+  rows.forEach(r=>{if(curRow&&r.min<curRow.min)r.el.classList.add('sr-past')});
+  if(curRow)curRow.el.classList.add('sr-now');
+  const titleOf=r=>{const s=r.el.querySelector('.sc strong');return s?s.textContent.trim():''};
+  pill.querySelector('.np-t').textContent=curRow?(curRow.el.dataset.tm+' · '+titleOf(curRow)):('Dzień '+n+' — plan startuje o '+(rows[0]?rows[0].el.dataset.tm:'?'));
+  let nt='';
+  if(nextRow){const df=nextRow.min-cur.min,hh=Math.floor(df/60),mm=df%60;nt='za '+(hh?hh+' h ':'')+(mm||!hh?mm+' min':'')+' → '+titleOf(nextRow)}
+  const npn=pill.querySelector('.np-n');npn.textContent=nt;npn.style.display=nt?'':'none';
+  pill._target=curRow?curRow.el:dc;
+  pill.dataset.has='1';
+  pill.style.display=document.getElementById('pplan').classList.contains('on')?'flex':'none';
+}
+renderPlanTab();
+setInterval(updateNowMode,60000);
+
+// Restore active tab from URL hash on load (#plan / #jedzenie / #dN)
+(function(){
+  const idx=tabFromHash();
+  if(idx!==0)sw(idx);
+  const h=location.hash.slice(1);
+  if(/^d\d+$/.test(h)){const el=document.getElementById(h);if(el)requestAnimationFrame(()=>el.scrollIntoView())}
+})();
+// Auto-przewinięcie do dzisiejszego dnia przy starcie (tylko w trakcie wycieczki, bez własnej kotwicy w URL)
+(function(){
+  const n=tripDayNum();if(n===null)return;
+  const h=location.hash;if(h&&h!=='#plan')return;
+  const el=document.getElementById('d'+n);
+  if(el)setTimeout(()=>el.scrollIntoView({block:'start'}),200);
+})();
+
+// ── Pogoda: Open-Meteo (bez klucza), jedno zapytanie o wszystkie lokalizacje, cache 3h ──
+function fetchWx(){
+  if(!navigator.onLine)return;
+  const c=getWxCache();
+  if(c.ts&&c.v===WX_V&&Date.now()-c.ts<3*3600*1000)return; // cache w starym formacie = odśwież od razu, nie czekaj na TTL
+  if(!D.meta.start||!TRIP_DAYS)return;
+  const today=tzParts(TZ);if(!today)return;
+  const addD=(ds,k)=>{const t=new Date(ds+'T00:00:00Z');t.setUTCDate(t.getUTCDate()+k);return t.toISOString().slice(0,10)};
+  const start=dayDate(1)>today.d?dayDate(1):today.d;
+  const horizon=addD(today.d,15);
+  const end=dayDate(TRIP_DAYS)<horizon?dayDate(TRIP_DAYS):horizon;
+  if(start>end)return; // poza 16-dniowym horyzontem prognozy albo po wycieczce
+  const coords=[],idx={};
+  for(let n=1;n<=TRIP_DAYS;n++){const g=DAY_GEO[n];if(!g)continue;const k=g.join(',');if(!(k in idx)){idx[k]=coords.length;coords.push(g)}}
+  if(!coords.length)return;
+  const url='https://api.open-meteo.com/v1/forecast?latitude='+coords.map(c=>c[0]).join(',')+'&longitude='+coords.map(c=>c[1]).join(',')+'&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&hourly=precipitation_probability,precipitation&timezone='+encodeURIComponent(TZ)+'&start_date='+start+'&end_date='+end;
+  fetch(url).then(r=>r.json()).then(j=>{
+    const arr=Array.isArray(j)?j:[j];
+    const byDay={};
+    for(let n=1;n<=TRIP_DAYS;n++){
+      const g=DAY_GEO[n];if(!g)continue;
+      const loc=arr[idx[g.join(',')]];
+      if(!loc||!loc.daily||!loc.daily.time)continue;
+      const ds=dayDate(n);
+      const di=loc.daily.time.indexOf(ds);
+      if(di<0)continue;
+      const rec={tx:loc.daily.temperature_2m_max[di],tn:loc.daily.temperature_2m_min[di],pp:loc.daily.precipitation_probability_max[di]};
+      // godzinowe 6:00–23:00 tylko dla daty tego dnia — do cache trafia sam wycinek, nie cała odpowiedź
+      const ht=loc.hourly&&loc.hourly.time;
+      if(ht){
+        const hp=[],hm=[];let found=false;
+        for(let k=0;k<WX_HN;k++){
+          const hi=ht.indexOf(ds+'T'+String(WX_H0+k).padStart(2,'0')+':00');
+          if(hi>=0)found=true;
+          hp.push(hi<0?0:Math.round(loc.hourly.precipitation_probability[hi]||0));
+          hm.push(hi<0?0:Math.round((loc.hourly.precipitation[hi]||0)*10)/10);
+        }
+        if(found){rec.hp=hp;rec.hm=hm}
+      }
+      byDay[n]=rec;
+    }
+    if(Object.keys(byDay).length){
+      try{localStorage.setItem('bari26_wx',JSON.stringify({v:WX_V,ts:Date.now(),d:byDay}))}catch(e){}
+      renderPlanTab();
+    }
+  }).catch(()=>{});
+}
+fetchWx();
+setInterval(fetchWx,30*60*1000);
+
+// PWA: rejestracja service workera (tryb offline + instalacja na telefonie)
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js').catch(()=>{})})}
+</script>
+</body>
+</html>

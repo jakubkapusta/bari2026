@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fc9e6"/>
+      <stop offset="1" stop-color="#f6e3c4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" fill="url(#s)"/>
+  <circle cx="1010" cy="110" r="56" fill="#f3b562"/>
+  <!-- kamienice starego miasta -->
+  <g fill="#cfb488">
+    <rect x="60" y="250" width="130" height="70"/><rect x="190" y="228" width="95" height="92"/><rect x="285" y="258" width="75" height="62"/>
+    <rect x="600" y="240" width="115" height="80"/><rect x="715" y="222" width="85" height="98"/>
+  </g>
+  <!-- bazylika św. Mikołaja -->
+  <g fill="#e2cda6">
+    <rect x="360" y="168" width="46" height="152"/>
+    <rect x="556" y="190" width="42" height="130"/>
+    <path d="M400 232 L478 180 L558 232 V320 H400 Z"/>
+  </g>
+  <circle cx="478" cy="246" r="11" fill="#8a6e48"/>
+  <path d="M460 320 v-38 a18 18 0 0 1 36 0 v38 Z" fill="#8a6e48"/>
+  <!-- zamek -->
+  <path d="M800 200 h20 v-18 h20 v18 h20 v-18 h20 v18 h20 v-18 h20 v18 h20 v-18 h20 v18 h20 v120 h-180 Z" fill="#b99a6a"/>
+  <rect x="870" y="260" width="40" height="60" fill="#8a6e48"/>
+  <!-- morze -->
+  <rect y="320" width="1200" height="100" fill="#2d74a6"/>
+  <g stroke="#7fb3d9" stroke-width="4" stroke-linecap="round" opacity=".75">
+    <line x1="90" y1="350" x2="160" y2="350"/><line x1="300" y1="372" x2="390" y2="372"/><line x1="560" y1="348" x2="620" y2="348"/>
+    <line x1="760" y1="385" x2="850" y2="385"/><line x1="980" y1="356" x2="1060" y2="356"/>
+  </g>
+</svg>

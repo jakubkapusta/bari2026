@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7ecd9"/>
+      <stop offset="1" stop-color="#f3dcc0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#sky)"/>
+  <!-- słońce -->
+  <circle cx="256" cy="200" r="96" fill="#d0603a"/>
+  <!-- Adriatyk -->
+  <rect y="290" width="512" height="90" fill="#1f5f8b"/>
+  <path d="M40 322 h70 M170 340 h80 M300 318 h60 M400 344 h70" stroke="#6ea6cf" stroke-width="10" stroke-linecap="round"/>
+  <!-- ląd -->
+  <rect y="372" width="512" height="140" fill="#e7d2aa"/>
+  <!-- trullo -->
+  <path d="M176 280 L256 152 L336 280 Z" fill="#6f6a62"/>
+  <circle cx="256" cy="146" r="13" fill="#fbf6ec"/>
+  <rect x="190" y="272" width="132" height="124" fill="#fbf6ec"/>
+  <path d="M236 396 v-46 a20 20 0 0 1 40 0 v46 Z" fill="#8a6e48"/>
+</svg>
