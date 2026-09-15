@@ -165,7 +165,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);padding:20px
 .tbd .ds{color:var(--muted);font-style:italic}
 /* ── Notki dnia (wątki wyjęte z opisu) ── */
 .dnt{margin-top:13px;display:flex;flex-direction:column;gap:6px}
-.dnt-i{display:grid;grid-template-columns:21px minmax(0,1fr);gap:9px;padding:8px 12px;border-radius:10px;background:var(--bg);font-size:.84em;line-height:1.5}
+.dnt-i{display:grid;grid-template-columns:21px minmax(0,1fr);gap:9px;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--text) 4%,var(--card));font-size:.84em;line-height:1.5}
 .dnt-i.act{background:var(--tint);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--indigo) 28%,transparent)}
 .dnt-ic{text-align:center;line-height:1.4}
 .dnt-b{color:var(--muted)}
@@ -194,7 +194,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);padding:20px
 .ck-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:6px;overflow:hidden;box-shadow:var(--shadow)}
 .ck-row{display:flex;align-items:flex-start;gap:11px;padding:11px 16px;cursor:pointer;transition:background .12s}
 .ck-row+.ck-row{border-top:1px solid var(--border)}
-.ck-row:hover{background:var(--bg)}
+.ck-row:hover{background:color-mix(in srgb,var(--text) 4%,var(--card))}
 .ck-cb{flex:0 0 auto;width:19px;height:19px;border:1.5px solid var(--line);border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:600;margin-top:1px;transition:.15s}
 .ck-on .ck-cb{background:var(--teal);border-color:var(--teal)}
 .ck-tx{font-size:.9em;line-height:1.5;padding-top:1px;flex:1;min-width:0}
@@ -285,14 +285,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);padding:20px
 .vsel-c{margin-top:4px;color:var(--teal);font-weight:500}
 .vbadge{display:inline-block;font-size:.76em;font-weight:600;font-family:var(--font-serif);background:var(--tint);color:var(--indigo);border:1px solid color-mix(in srgb,var(--indigo) 30%,transparent);border-radius:5px;padding:0 6px;margin-right:6px;vertical-align:1px}
 /* ── Tryb „TERAZ" — bieżący dzień i punkt planu ── */
-.today-pill{display:inline-block;font-family:var(--font);font-size:.55em;font-weight:500;background:var(--red);color:#fff;border-radius:99px;padding:2px 9px;margin-left:8px;vertical-align:middle;letter-spacing:.09em}
+.dc.dc-today{border-color:var(--lemon);box-shadow:0 0 0 3px color-mix(in srgb,var(--lemon) 35%,transparent),var(--shadow)}
+.today-pill{display:inline-block;font-family:var(--font);font-size:.55em;font-weight:600;background:var(--lemon);color:#1c2b45;border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle;letter-spacing:.1em}
 .sr-past{opacity:.5}
-.sr-now{background:linear-gradient(90deg,color-mix(in srgb,var(--lemon) 24%,transparent),transparent 75%);border-radius:10px}
-.sr-now .sdot::before{background:var(--red);animation:nowPulse 2.2s ease-in-out infinite}
+.sr-now{background:linear-gradient(90deg,color-mix(in srgb,var(--lemon) 26%,transparent),transparent 80%);border-radius:10px}
+.sr-now .sdot::before{background:var(--lemon);box-shadow:0 0 0 2px var(--indigo),0 0 0 4px var(--card);animation:nowPulse 2.2s ease-in-out infinite}
 @keyframes nowPulse{0%,100%{transform:rotate(45deg) scale(1)}50%{transform:rotate(45deg) scale(1.35)}}
-.now-pill{position:fixed;right:14px;bottom:14px;z-index:60;display:none;align-items:center;gap:10px;max-width:min(80vw,420px);background:var(--card);border:1.5px solid var(--red);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.16);padding:9px 14px;cursor:pointer;font-family:var(--font)}
+.now-pill{position:fixed;right:14px;bottom:14px;z-index:60;display:none;align-items:center;gap:10px;max-width:min(80vw,420px);background:var(--card);border:1.5px solid var(--indigo);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.16);padding:9px 14px;cursor:pointer;font-family:var(--font)}
 .now-pill:hover{filter:brightness(1.03)}
-.now-pill .np-k{font-size:.6em;font-weight:600;color:var(--red);letter-spacing:.1em;white-space:nowrap;flex:none}
+.now-pill .np-k{font-size:.6em;font-weight:600;color:#1c2b45;background:var(--lemon);border-radius:6px;padding:3px 7px;letter-spacing:.1em;white-space:nowrap;flex:none}
 .now-pill .np-body{display:flex;flex-direction:column;min-width:0}
 .now-pill .np-t{font-size:.8em;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .now-pill .np-n{font-size:.7em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -513,7 +514,9 @@ let imgCredits='';
 // ── Pogoda + wschód/zachód słońca per dzień ──
 // Współrzędne bazy każdego dnia (dla dnia z wariantami — cel wariantu domyślnego)
 const DAY_GEO={1:[41.13,16.87],2:[40.99,17.22],3:[40.78,17.24],4:[41.13,16.87]};
-function nowDate(){return window.__testNow?new Date(window.__testNow):new Date()}
+// Podgląd „jak to będzie wyglądać w dniu X": ?now=2026-10-19T10:50 w adresie (albo window.__testNow w konsoli)
+const URL_NOW=new URLSearchParams(location.search).get('now');
+function nowDate(){const t=window.__testNow||URL_NOW;return t?new Date(t):new Date()}
 function tzParts(tz){const s=new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(nowDate());const m=s.match(/(\d{4})-(\d{2})-(\d{2}),?\s*(\d{2}):(\d{2})/);return m?{d:m[1]+'-'+m[2]+'-'+m[3],min:+m[4]*60+ +m[5]}:null}
 // Dzień 1 = data `start` z META
 function dayDate(n){const st=D.meta.start;if(!st)return'';const p=st.split('-');return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n-1)).toISOString().slice(0,10)}
@@ -637,7 +640,8 @@ function renderPlanTab(){
     const pm=part.title.match(/^\s*(Część\s*\d+)\s*[:：]\s*(.+)$/i);
     const pk=(pm?pm[1]:part.title).toUpperCase();
     const pn=pm?pm[2]:part.title;
-    h1+=`<div class="pdiv p-${c}"><div class="tile">${ROMAN[pi]||pi+1}</div><div class="pt"><div class="pk">${esc(pk)}</div><div class="pn">${esc(pn)}</div></div></div>`;
+    // Nagłówek części tylko przy kilku częściach — przy jednej byłby pustym ozdobnikiem
+    if(D.parts.length>1)h1+=`<div class="pdiv p-${c}"><div class="tile">${ROMAN[pi]||pi+1}</div><div class="pt"><div class="pk">${esc(pk)}</div><div class="pn">${esc(pn)}</div></div></div>`;
     part.days.forEach(od=>{
       const dnum=String(dayNumOf(od)),anchor='d'+dnum;
       nav+=`<a class="dn-${c}" href="#${anchor}">${dnum}</a>`;
@@ -765,12 +769,14 @@ function ensureNowPill(){
 function updateNowMode(){
   document.querySelectorAll('.sr-now,.sr-past').forEach(el=>el.classList.remove('sr-now','sr-past'));
   document.querySelectorAll('.today-pill').forEach(el=>el.remove());
+  document.querySelectorAll('.dc-today').forEach(el=>el.classList.remove('dc-today'));
   const pill=ensureNowPill();
   const n=tripDayNum();
   const off=()=>{pill.dataset.has='0';pill.style.display='none'};
   if(n===null){off();return}
   const dc=document.getElementById('d'+n);
   if(!dc){off();return}
+  dc.classList.add('dc-today');
   const dn=dc.querySelector('.dh .dn');
   if(dn){const sp=document.createElement('span');sp.className='today-pill';sp.textContent='DZIŚ';dn.appendChild(sp)}
   const cur=tzParts(TZ);
@@ -804,12 +810,19 @@ setInterval(updateNowMode,60000);
   const n=tripDayNum();if(n===null)return;
   const h=location.hash;if(h&&h!=='#plan')return;
   const el=document.getElementById('d'+n);
-  if(el)setTimeout(()=>el.scrollIntoView({block:'start'}),200);
+  // Najlepiej od razu bieżący punkt; przed pierwszym punktem dnia — początek karty
+  if(!el)return;
+  // Czekamy na fonty i obrazki — wcześniejsze przewinięcie ląduje za wysoko, bo układ jeszcze rośnie
+  const loaded=new Promise(r=>document.readyState==='complete'?r():window.addEventListener('load',r,{once:true}));
+  Promise.all([loaded,document.fonts?document.fonts.ready:null]).then(()=>{
+    const t=el.querySelector('.sr-now')||el;
+    t.scrollIntoView({block:t===el?'start':'center'});
+  });
 })();
 
 // ── Pogoda: Open-Meteo (bez klucza), jedno zapytanie o wszystkie lokalizacje, cache 3h ──
 function fetchWx(){
-  if(!navigator.onLine)return;
+  if(!navigator.onLine||URL_NOW)return; // w podglądzie ?now= daty leżą poza prawdziwym horyzontem prognozy → API zwraca 400
   const c=getWxCache();
   if(c.ts&&c.v===WX_V&&Date.now()-c.ts<3*3600*1000)return; // cache w starym formacie = odśwież od razu, nie czekaj na TTL
   if(!D.meta.start||!TRIP_DAYS)return;

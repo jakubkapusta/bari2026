@@ -47,7 +47,7 @@ Opis dnia — wolny tekst, renderowany jako intro.
 
 - Numer dnia (`Dzień N`) = kotwica `#dN`, klucz w `DAY_IMG`, `DAY_GEO`, `DAY_CITY` i w ciekawostkach (`DN`).
 - 4. pole nagłówka dnia to nocleg → link do mapy. Wyjątki (zwykły tekst): zaczyna się od `Lot` (ikona ✈️) albo zawiera `do ustalenia`.
-- Części: kolor i cyfra rzymska z kolejności (`# ` pierwsza = terakota, druga = Adriatyk, trzecia = oliwka). Obecnie jedna część.
+- Części: kolor i cyfra rzymska z kolejności (`# ` pierwsza = kobalt, druga = terakota, trzecia = oliwka). Linia `# ` jest wymagana (dni bez części nie trafiają do planu), ale **nagłówek części renderuje się tylko przy ≥2 częściach**. Obecnie jedna część, więc nagłówka nie widać.
 
 Format punktu harmonogramu: `- CZAS | EMOJI TYTUŁ | OPIS | OPCJONALNY_MAP_QUERY`
 - Map query (po ostatnim `|`) — trafia do linku Google Maps (`maps/search/?api=1&query=...`)
@@ -192,7 +192,8 @@ Kierunek: apulijskie kafle ceramiczne. Kobalt + cytryna na wapiennej bieli, seri
 
 ## Pozostałe funkcje
 
-- **Tryb TERAZ** (`updateNowMode`) — w trakcie wycieczki podświetla dzisiejszy dzień (`DZIŚ`), bieżący punkt i pokazuje pigułkę „▶ TERAZ" z następnym punktem; przy starcie przewija do dzisiejszego dnia. Do testów: `window.__testNow='2026-10-18T11:00:00+02:00';updateNowMode()`.
+- **Tryb TERAZ** (`updateNowMode`) — w trakcie wycieczki karta dzisiejszego dnia dostaje cytrynową obwódkę (`.dc-today`) i znaczek `DZIŚ`, bieżący punkt cytrynowe tło i pulsujący romb, a w rogu pigułka „▶ TERAZ" z następnym punktem. Przy starcie strona przewija do bieżącego punktu (przed pierwszym punktem — do początku karty). Styl w kolorach Maioliki (cytryna + kobalt); czerwień/terakota zostaje tylko dla ostrzeżeń pogodowych.
+- **Podgląd dowolnego momentu:** `index.html?now=2026-10-19T10:50` w adresie (albo `window.__testNow='…';renderPlanTab()` w konsoli).
 - **Odliczanie** w nagłówku (`cdHead`); **3× klik w odliczanie** → easter egg z psem (`img/dog.png`).
 - **Motyw** jasny/ciemny (`bari26_theme`), **druk/PDF** (rozwija ciekawostki na czas wydruku).
 - Wszystkie klucze `localStorage` mają prefiks `bari26_` — strona żyje na tym samym originie (`github.io`) co plan Japonii (`jp26_*`), więc prefiksów nie wolno mieszać.
