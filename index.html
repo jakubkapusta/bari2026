@@ -256,7 +256,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);padding:20px
 .ck-on .ck-tx{text-decoration:line-through;opacity:.5}
 .ck-d{color:var(--muted);font-weight:400}
 /* Nagłówek grupy jak sekcja w karcie menu: ikona, tytuł serifem, kropkowana linia, licznik */
-.ck-grp{display:flex;align-items:center;gap:11px;margin:30px 0 12px;color:var(--pc,var(--indigo))}
+/* padding jak w wierszach karty — ikona w jednej linii z nazwami dań, licznik z prawą krawędzią tekstu */
+.ck-grp{display:flex;align-items:center;gap:11px;margin:30px 0 12px;padding:0 16px;color:var(--pc,var(--indigo))}
 .ck-grp:first-of-type{margin-top:6px}
 .ck-grp .gi{flex:none;width:24px;height:24px;display:block}
 .ck-gt2{flex:0 1 auto;min-width:0;font-family:var(--font-serif);font-weight:600;font-size:1.4em;color:var(--text)}
@@ -731,16 +732,16 @@ function slug(s){return s.toLowerCase().replace(/[^a-z0-9ąćęłńóśźż]+/g,
 const FOOD_STORE='bari26_food';
 // Ikony grup w Jedzeniu — monoliniowe SVG (emoji w kolorowym kwadracie wyglądały źle)
 const FOOD_ICON={
-  bread:'<path d="M4.5 10.5c0-2.6 3.4-4.5 7.5-4.5s7.5 1.9 7.5 4.5v5.8a1.7 1.7 0 0 1-1.7 1.7H6.2a1.7 1.7 0 0 1-1.7-1.7Z"/><path d="M9 10.8v7M13.5 10.8v7"/>',
-  plate:'<ellipse cx="12" cy="13.2" rx="9" ry="5.4"/><ellipse cx="12" cy="13.2" rx="4.8" ry="2.7"/>',
+  bread:'<rect x="2.8" y="8.4" width="18.4" height="9.2" rx="4.6"/><path d="M8.6 11.2 7 14.8M12.6 11.2 11 14.8M16.6 11.2 15 14.8"/>',
+  plate:'<ellipse cx="12" cy="14.2" rx="9" ry="5.2"/><ellipse cx="12" cy="14.2" rx="5.6" ry="3.1"/><path d="M9.6 7.4c0-1.1 1.1-1.5 1.1-2.6M13.3 7.4c0-1.1 1.1-1.5 1.1-2.6"/>',
   fish:'<path d="M21.2 12c-2.4 3.3-5.6 5-9.1 5s-6.7-1.7-9.1-5c2.4-3.3 5.6-5 9.1-5s6.7 1.7 9.1 5Z"/><path d="M3 12 .9 9.3v5.4Z"/><path d="M8.6 8.7c-1.1 2-1.1 4.6 0 6.6"/><circle cx="16.4" cy="10.9" r=".85" fill="currentColor" stroke="none"/>',
-  flame:'<path d="M12 3.5c.4 3.2 4.8 4.6 4.8 9a4.8 4.8 0 0 1-9.6 0c0-1.7.8-2.9 1.7-3.8.3 1 .9 1.6 1.7 1.9-.4-2.6.3-5 1.4-7.1Z"/>',
-  wheat:'<path d="M12 21v-9"/><path d="M12 12c-2.2 0-3.8-1.6-3.8-3.8 2.2 0 3.8 1.6 3.8 3.8Zm0 0c2.2 0 3.8-1.6 3.8-3.8-2.2 0-3.8 1.6-3.8 3.8Z"/><path d="M12 7.5c-1.8 0-3-1.4-3-3.2 1.8 0 3 1.4 3 3.2Zm0 0c1.8 0 3-1.4 3-3.2-1.8 0-3 1.4-3 3.2Z"/>',
+  skewer:'<path d="M3.5 20.5 20.5 3.5"/><circle cx="8.8" cy="15.2" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="15.2" cy="8.8" r="2.5"/>',
+  wheat:'<path d="M12 21.5v-8.5"/><path d="M12 13.2c-2.1 0-3.5-1.5-3.5-3.7 2.1 0 3.5 1.5 3.5 3.7Zm0 0c2.1 0 3.5-1.5 3.5-3.7-2.1 0-3.5 1.5-3.5 3.7Z"/><path d="M12 9.2c-1.9 0-3.2-1.4-3.2-3.4 1.9 0 3.2 1.4 3.2 3.4Zm0 0c1.9 0 3.2-1.4 3.2-3.4-1.9 0-3.2 1.4-3.2 3.4Z"/><path d="M12 5.4c-1.6 0-2.7-1.2-2.7-3 1.6 0 2.7 1.2 2.7 3Zm0 0c1.6 0 2.7-1.2 2.7-3-1.6 0-2.7 1.2-2.7 3Z"/>',
   coffee:'<path d="M4.5 8.5h12v5.8a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4Z"/><path d="M16.5 10h1.6a2.4 2.4 0 0 1 0 4.8h-1.6"/><path d="M7.5 3.5v2M11 3v2.5"/>',
   wine:'<path d="M7.8 3.5h8.4l-.7 5.3a3.5 3.5 0 0 1-7 0Z"/><path d="M12 12.3V20M8.8 20h6.4"/>'
 };
 function foodIcon(k){return `<svg class="gi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${FOOD_ICON[k]||FOOD_ICON.plate}</svg>`}
-const FOOD_MON={'Street food':['bread','p-1'],'Makarony i pierwsze dania':['plate','p-2'],'Z morza':['fish','p-3'],'Dolina Itrii':['flame','p-1'],'Altamura i Matera':['wheat','p-2'],'Słodkie i kawa':['coffee','p-3'],'Wino':['wine','p-1']};
+const FOOD_MON={'Street food':['bread','p-1'],'Makarony i pierwsze dania':['plate','p-2'],'Z morza':['fish','p-3'],'Dolina Itrii':['skewer','p-1'],'Altamura i Matera':['wheat','p-2'],'Słodkie i kawa':['coffee','p-3'],'Wino':['wine','p-1']};
 function toggleFood(key){const s=getChk(FOOD_STORE);s[key]=!s[key];saveChk(FOOD_STORE,s);renderFood()}
 function renderFood(){
   const s=getChk(FOOD_STORE),items=D.food;
