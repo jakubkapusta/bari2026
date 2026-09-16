@@ -31,7 +31,8 @@ Checklista „spróbowane" (stan w `localStorage['bari26_food']`).
 GRUPA :: NAZWA | OPIS | OPCJONALNY_MAP_QUERY | OPCJONALNE_LOKALE
 ```
 
-- `GRUPA` — nagłówek grupy; ikona grupy z mapy `FOOD_MON` w JS (`'Street food':['🥖','p-1']`). Nowa grupa bez wpisu w `FOOD_MON` dostanie 🍴.
+- `GRUPA` — nagłówek grupy. Wygląd bierze się z mapy `FOOD_MON` w JS: `'Street food':['bread','p-1']` — pierwszy element to klucz ikony z `FOOD_ICON` (inline SVG, kreska w `currentColor`), drugi to klasa koloru (`p-1` kobalt, `p-2` terakota, `p-3` oliwka). Nowa grupa bez wpisu dostanie ikonę `plate` i kobalt.
+- **Nagłówki grup nie używają emoji** — w kolorowym kwadracie wyglądały źle. Wzór to: monoliniowa ikona, tytuł serifem, kropkowana linia jak w karcie menu i licznik po prawej.
 - `OPCJONALNE_LOKALE` — lista `Nazwa @ map query`, rozdzielana `;;` → chipy z linkiem do Google Maps.
 
 ```
